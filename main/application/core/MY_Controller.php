@@ -29,6 +29,10 @@ class MY_Controller extends CI_Controller{
 		$this->_sideMenu = array();
 		$this->load->library('breadcrumb', array());
 		$this->form_validation->set_error_delimiters('', '');
+		
+		// Initialize security libraries safely
+        $this->initializeSecurity();
+        
 		if ($this->uri->segment(1) != '') {
 			if (!$this->session->userdata('admin')) {
 				redirect(site_url());
@@ -36,6 +40,191 @@ class MY_Controller extends CI_Controller{
 		}
 		$this->load->library('session');
 	}
+	
+	/**
+     * Initialize security libraries and features safely
+     */
+    private function initializeSecurity() {
+        try {
+            // Load security libraries if not already loaded
+            if (!isset($this->session_security)) {
+                $this->load->library('session_security');
+            }
+            
+            if (!isset($this->input_security)) {
+                $this->load->library('input_security');
+            }
+            
+            // Set security headers
+            $this->setSecurityHeaders();
+            
+        } catch (Exception $e) {
+            // Log error but don't break the application
+            log_message('error', 'Security initialization failed: ' . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Set security headers for all responses
+     */
+    private function setSecurityHeaders() {
+        // Only set if not already set by .htaccess
+        if (!headers_sent()) {
+            header('X-Content-Type-Options: nosniff');
+            header('X-Frame-Options: SAMEORIGIN');
+            header('X-XSS-Protection: 1; mode=block');
+            header('Referrer-Policy: strict-origin-when-cross-origin');
+        }
+    }
+    
+    /**
+     * Enhanced login check with security validation
+     */
+    protected function is_login() {
+        // Use session security library for validation if available
+        if (isset($this->session_security)) {
+            try {
+                if (!$this->session_security->isSessionValid()) {
+                    return false;
+                }
+            } catch (Exception $e) {
+                log_message('error', 'Session security check failed: ' . $e->getMessage());
+            }
+        }
+        
+        $admin = $this->session->userdata('admin');
+        return !empty($admin);
+    }
+    
+    /**
+     * Secure input validation wrapper
+     */
+    protected function validate_input($input, $type = 'text', $options = array()) {
+        if (isset($this->input_security)) {
+            try {
+                return $this->input_security->validate($input, $type, $options);
+            } catch (Exception $e) {
+                log_message('error', 'Input validation failed: ' . $e->getMessage());
+            }
+        }
+        
+        // Fallback to basic validation
+        return $this->security->xss_clean($input);
+    }
+    
+    /**
+     * Validate form data with security checks
+     */
+    protected function validate_form($data, $rules) {
+        if (isset($this->input_security)) {
+            try {
+                return $this->input_security->validateForm($data, $rules);
+            } catch (Exception $e) {
+                log_message('error', 'Form validation failed: ' . $e->getMessage());
+            }
+        }
+        
+        return array('success' => false, 'errors' => array('Security validation not available'));
+    }
+    
+    /**
+     * Enhanced redirect with security checks
+     */
+    protected function secure_redirect($uri = '', $method = 'auto', $code = NULL) {
+        // Validate redirect URL to prevent open redirects
+        if (!empty($uri)) {
+            // Check if it's an external URL
+            if (filter_var($uri, FILTER_VALIDATE_URL)) {
+                $parsed_url = parse_url($uri);
+                $current_host = $_SERVER['HTTP_HOST'];
+                
+                // Only allow redirects to same domain
+                if (isset($parsed_url['host']) && $parsed_url['host'] !== $current_host) {
+                    // Log potential open redirect attempt
+                    log_message('security', 'Open redirect attempt blocked: ' . $uri . ' from IP: ' . $this->input->ip_address());
+                    
+                    // Redirect to safe default
+                    redirect(base_url());
+                    return;
+                }
+            }
+        }
+        
+        redirect($uri, $method, $code);
+    }
+    
+    /**
+     * Set error message with XSS protection
+     */
+    protected function set_error_message($message) {
+        $clean_message = $this->security->xss_clean($message);
+        $this->session->set_flashdata('error_message', $clean_message);
+    }
+    
+    /**
+     * Set success message with XSS protection
+     */
+    protected function set_success_message($message) {
+        $clean_message = $this->security->xss_clean($message);
+        $this->session->set_flashdata('success_message', $clean_message);
+    }
+    
+    /**
+     * Get current user information securely
+     */
+    protected function get_current_user() {
+        $admin = $this->session->userdata('admin');
+        
+        if (empty($admin)) {
+            return null;
+        }
+        
+        // Return only safe user data
+        return array(
+            'id' => isset($admin['id']) ? $admin['id'] : null,
+            'username' => isset($admin['username']) ? $admin['username'] : null,
+            'name' => isset($admin['name']) ? $admin['name'] : null,
+            'level' => isset($admin['level']) ? $admin['level'] : null
+        );
+    }
+    
+    /**
+     * Check user permissions for specific action
+     */
+    protected function check_permission($action = null, $redirect_on_fail = true) {
+        if (!$this->is_login()) {
+            if ($redirect_on_fail) {
+                $this->set_error_message('Silakan login terlebih dahulu');
+                redirect(base_url());
+            }
+            return false;
+        }
+        
+        $user = $this->get_current_user();
+        
+        // Basic permission check - can be extended
+        if ($action && isset($user['level'])) {
+            // Define permission levels (customize as needed)
+            $permissions = array(
+                'admin' => array('all'),
+                'user' => array('view', 'edit_own'),
+                'guest' => array('view')
+            );
+            
+            $user_level = $user['level'];
+            $allowed_actions = isset($permissions[$user_level]) ? $permissions[$user_level] : array();
+            
+            if (!in_array('all', $allowed_actions) && !in_array($action, $allowed_actions)) {
+                if ($redirect_on_fail) {
+                    $this->set_error_message('Anda tidak memiliki akses untuk melakukan tindakan ini');
+                    redirect(base_url('dashboard'));
+                }
+                return false;
+            }
+        }
+        
+                 return true;
+    }
 
 	function index($id = null){
 
