@@ -1,0 +1,56 @@
+-- VMS eProc Migration
+-- Database: eproc_perencanaan
+-- Table: ms_fppbj
+-- Generated: 2025-07-07 22:58:55
+
+-- Create ms_fppbj table
+CREATE TABLE IF NOT EXISTS `ms_fppbj` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `is_perencanaan` int(11) NOT NULL,
+    `id_pic` int(11) NULL,
+    `id_division` int(11) NULL,
+    `id_perencanaan_umum` int(11) NULL,
+    `is_planning` tinyint(1) NOT NULL DEFAULT '0',
+    `is_status` tinyint(4) NOT NULL DEFAULT '0',
+    `is_approved` tinyint(1) NULL DEFAULT '0',
+    `is_reject` tinyint(4) NOT NULL DEFAULT '0',
+    `is_writeoff` int(11) NULL DEFAULT '0',
+    `is_approved_hse` int(11) NULL DEFAULT '0',
+    `is_multiyear` tinyint(1) NOT NULL,
+    `is_cancelled` tinyint(1) NULL DEFAULT '0',
+    `no_pr` varchar(100) NULL,
+    `tipe_pr` varchar(45) NULL,
+    `pr_lampiran` text NULL,
+    `nama_pengadaan` varchar(250) NULL,
+    `tipe_pengadaan` varchar(40) NULL,
+    `jenis_pengadaan` varchar(45) NULL,
+    `year_anggaran` varchar(100) NULL DEFAULT '2019',
+    `idr_anggaran` decimal(45,2) NULL,
+    `usd_anggaran` decimal(40,2) NULL,
+    `desc_pengadaan` text NULL,
+    `hps` tinyint(1) NULL,
+    `kak_lampiran` text NULL,
+    `lingkup_kerja` text NULL,
+    `desc_dokumen` text NULL,
+    `metode_pengadaan` varchar(45) NULL,
+    `penggolongan_penyedia` varchar(45) NULL,
+    `jwpp` text NULL,
+    `jwpp_start` date NULL,
+    `jwpp_end` date NULL,
+    `jwp` text NULL,
+    `jwp_start` date NULL,
+    `jwp_end` date NULL,
+    `penerimaan_pekerjaan` timestamp NULL,
+    `desc_metode_pembayaran` text NULL,
+    `jenis_kontrak` varchar(70) NULL,
+    `sistem_kontrak` text NULL,
+    `desc` text NULL,
+    `csms` varchar(10) NULL,
+    `lampiran_persetujuan` text NULL,
+    `entry_stamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    `edit_stamp` timestamp NULL,
+    `del` tinyint(1) NULL DEFAULT '0',
+    `pejabat_pengadaan_id` int(11) NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
