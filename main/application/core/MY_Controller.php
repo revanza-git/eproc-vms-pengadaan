@@ -20,9 +20,17 @@ class MY_Controller extends CI_Controller{
 	public $successMessage = '<div class="alert alert-success temp">Sukses</div>';
 
 	public $isClientMenu;
+	protected $session_security;
+    protected $input_security;
 
 	function __construct(){
 		parent::__construct();
+		
+		// Initialize security libraries
+        $this->initializeSecurity();
+        
+        // Check security requirements
+        $this->checkSecurityRequirements();
 		$this->load->library('session');
 		$this->_sideMenu = array();
 		$this->load->library('breadcrumb', array());
