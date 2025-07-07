@@ -96,7 +96,8 @@ class Pass_change extends MY_Controller {
 			}
 
 			if ($save['password'] != '' && $save['email'] == '' && $save['username'] == '' && $save['photo_profile'] == '') {
-				$save_change['password'] = do_hash($save['password'],'sha1');
+				// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+				$save_change['password'] = $this->secure_password->hash_password($save['password']);
 				$save_change['raw_password'] = $save['password'];
 				$save_change['edit_stamp'] = date('Y-m-d H:i:s'); 
 			}
@@ -109,7 +110,8 @@ class Pass_change extends MY_Controller {
 			} 
 
 			if ($save['email'] != '' && $save['password'] != '' && $save['username'] == '' && $save['photo_profile'] == '') {
-				$save_change['password'] = do_hash($save['password'],'sha1');
+				// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+				$save_change['password'] = $this->secure_password->hash_password($save['password']);
 				$save_change['raw_password'] = $save['password'];
 				$save_change['email'] = $save['email'];
 				$save_change['edit_stamp'] = date('Y-m-d H:i:s'); 
@@ -122,7 +124,8 @@ class Pass_change extends MY_Controller {
 			}
 
 			if ($save['username'] != '' && $save['password'] != '' && $save['email'] == '' && $save['photo_profile'] == '') {
-				$save_change['password'] = do_hash($save['password'],'sha1');
+				// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+				$save_change['password'] = $this->secure_password->hash_password($save['password']);
 				$save_change['raw_password'] = $save['password'];
 				$save_change['username'] = $save['username'];
 				$save_change['edit_stamp'] = date('Y-m-d H:i:s'); 
@@ -135,7 +138,8 @@ class Pass_change extends MY_Controller {
 			} 
 
 			if ($save['password'] != '' && $save['photo_profile'] != '' && $save['email'] == '' && $save['username'] == '') {
-				$save_change['password'] = do_hash($save['password'],'sha1');
+				// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+				$save_change['password'] = $this->secure_password->hash_password($save['password']);
 				$save_change['raw_password'] = $save['password'];
 				$save_change['photo_profile'] = $save['photo_profile'];
 				$save_change['edit_stamp'] = date('Y-m-d H:i:s'); 
@@ -145,7 +149,8 @@ class Pass_change extends MY_Controller {
 			if ($save['email'] != '' && $save['username'] != '' && $save['password'] != '' && $save['photo_profile'] == '' ) {
 				$save_change['email'] = $save['email'];
 				$save_change['username'] = $save['username'];
-				$save_change['password'] = do_hash($save['password'],'sha1');
+				// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+				$save_change['password'] = $this->secure_password->hash_password($save['password']);
 				$save_change['raw_password'] = $save['password'];
 				$save_change['edit_stamp'] = date('Y-m-d H:i:s'); 
 			}
@@ -158,7 +163,8 @@ class Pass_change extends MY_Controller {
 			}
 
 			if ($save['username'] != '' && $save['password'] != '' && $save['photo_profile'] != '' && $save['email'] == '') {
-				$save_change['password'] = do_hash($save['password'],'sha1');
+				// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+				$save_change['password'] = $this->secure_password->hash_password($save['password']);
 				$save_change['raw_password'] = $save['password'];
 				$save_change['username'] = $save['username'];
 				$save_change['photo_profile'] = $save['photo_profile'];
@@ -169,7 +175,8 @@ class Pass_change extends MY_Controller {
 			if ($save['username'] != '' && $save['email'] != '' && $save['password'] != '' && $save['photo_profile'] != '') {
 				$save_change['username'] = $save['username'];
 				$save_change['email'] = $save['email'];
-				$save_change['password'] = do_hash($save['password'],'sha1');
+				// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+				$save_change['password'] = $this->secure_password->hash_password($save['password']);
 				$save_change['raw_password'] = $save['password'];
 				$save_change['photo_profile'] = $save['photo_profile'];
 				$save_change['edit_stamp'] = date('Y-m-d H:i:s'); 

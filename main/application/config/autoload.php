@@ -58,7 +58,16 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session','pagination','form_validation','upload','input_security','session_security');
+$autoload['libraries'] = array(
+    'database',
+    'session',
+    'pagination',
+    'form_validation',
+    'upload',
+    'secure_password',    // Added secure password library for automatic loading
+    'input_security',     // Advanced input validation library  
+    'session_security'    // Enhanced session management library
+);
 
 /*
 | -------------------------------------------------------------------

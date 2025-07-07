@@ -115,10 +115,35 @@ class Main extends CI_Controller {
     }
 
     private function verify_password($password, $user_data) {
-        // Implement proper password verification here
-        // This is a simplified version - adjust based on your password hashing
-        $hashed_password = do_hash($password, 'sha1');
-        return ($hashed_password === $user_data['password']);
+        // Load the secure password library if not already loaded
+        if (!isset($this->secure_password)) {
+            $this->load->library('secure_password');
+        }
+        
+        // Verify password using secure library (supports both bcrypt and legacy hashes)
+        $is_valid = $this->secure_password->verify_password($password, $user_data['password']);
+        
+        if ($is_valid) {
+            // Check if password needs rehashing (migration from legacy SHA-1 to bcrypt)
+            if ($this->secure_password->needs_rehash($user_data['password'])) {
+                log_message('info', 'Password migration required for user: ' . $user_data['username']);
+                
+                // Generate new secure bcrypt hash
+                $new_hash = $this->secure_password->hash_password($password);
+                
+                if ($new_hash) {
+                    // Update database with new secure hash
+                    $this->eproc_db->where('id', $user_data['id'])
+                                   ->update('ms_login', array('password' => $new_hash));
+                    
+                    log_message('info', 'Password successfully migrated to bcrypt for user: ' . $user_data['username']);
+                } else {
+                    log_message('error', 'Failed to generate new secure hash for user: ' . $user_data['username']);
+                }
+            }
+        }
+        
+        return $is_valid;
     }
 
     private function login_user_secure($data) {

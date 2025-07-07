@@ -14,12 +14,32 @@ class Main_model extends CI_model{
 		$username = encode_php_tags($this->input->post('username'));
 		$password = $this->input->post('password');
 
-		$sql = "SELECT * FROM ms_login WHERE username = ? AND password = ?";
-		$_sql = $this->eproc_db->query($sql, array($username, $password));
+		// SECURITY FIX: Only select by username, verify password separately
+		$sql = "SELECT * FROM ms_login WHERE username = ?";
+		$_sql = $this->eproc_db->query($sql, array($username));
 		$sql = $_sql->row_array();
 
 		$ct_sql = '';
 		if($_sql->num_rows() > 0){
+			// Load secure password library for verification
+			$this->load->library('secure_password');
+			
+			// Verify password securely (supports both bcrypt and legacy hashes)
+			if (!$this->secure_password->verify_password($password, $sql['password'])) {
+				// Password verification failed - increment attempts
+				$this->handle_failed_login($username);
+				return false;
+			}
+			
+			// Check if password needs rehashing (migration from legacy to bcrypt)
+			if ($this->secure_password->needs_rehash($sql['password'])) {
+				$new_hash = $this->secure_password->hash_password($password);
+				if ($new_hash) {
+					$this->eproc_db->where('id', $sql['id'])
+								   ->update('ms_login', array('password' => $new_hash));
+					log_message('info', 'Password migrated to bcrypt for user: ' . $username);
+				}
+			}
 
 			if($sql['type'] == "user"){
 				$ct_sql = "SELECT * FROM ms_vendor WHERE id=? AND is_active =?";
@@ -132,7 +152,19 @@ class Main_model extends CI_model{
 				}
 			}
 		}else{
-			$data = $this->eproc_db->query("SELECT * FROM ms_login WHERE username = ?", array($username))->row_array();
+			// User not found - handle as failed login
+			$this->handle_failed_login($username);
+			return false;
+		}
+	}
+	
+	/**
+	 * Handle failed login attempts with account lockout
+	 */
+	private function handle_failed_login($username) {
+		$data = $this->eproc_db->query("SELECT * FROM ms_login WHERE username = ?", array($username))->row_array();
+		
+		if ($data) {
 			$attempts = $data['attempts'];
 			$attempts++;
 
@@ -147,9 +179,12 @@ class Main_model extends CI_model{
 					'attempts' => 0,
 					'lock_time' => $lock_time
 				));
+				
+				// Log security event
+				log_message('warning', 'Account locked due to multiple failed attempts: ' . $username);
 			}else{
 				$this->eproc_db->set('attempts', $attempts)->where('username', $username)->update('ms_login');
-				return false;
+				log_message('info', 'Failed login attempt (' . $attempts . '/3) for user: ' . $username);
 			}
 		}
 	}

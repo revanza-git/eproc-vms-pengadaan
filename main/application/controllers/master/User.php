@@ -87,7 +87,8 @@ class User extends MY_Controller {
 		$password = password_generator();
 		$_POST['username'] = $_POST['email'];
 		$_POST['raw_password'] = $password;
-		$_POST['password'] = do_hash($password,'sha1');
+		// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+		$_POST['password'] = $this->secure_password->hash_password($password);
 		$to = $_POST['email'];
 		$subject = "Password User";
 		$message = "Ini adalah akun anda :<br> Username : '".$_POST['email']."' <br> Password : '".$password."' <br> <a href=".base_url().">Klik Disini</a> untuk login";
@@ -98,7 +99,8 @@ class User extends MY_Controller {
 	public function update($id){
 		if($_POST['password']!=''){
 			$_POST['raw_password'] = $_POST['password'];
-			$_POST['password'] = do_hash($_POST['password'],'sha1');
+			// SECURITY FIX: Use secure bcrypt hashing instead of weak SHA-1
+			$_POST['password'] = $this->secure_password->hash_password($_POST['password']);
 		}else{
 			unset($_POST['password']);
 			$this->form['form']['password']['rules'] = '';
