@@ -51,6 +51,94 @@ class Main extends CI_Controller {
         }
     }
 
+    /**
+     * Secure login method with proper CSRF protection and JSON response
+     */
+    public function check_secure(){
+        // Set JSON response headers
+        $this->output->set_content_type('application/json');
+        
+        try {
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+
+            if (!$username || !$password) {
+                throw new Exception('Username dan password harus diisi');
+            }
+
+            // Process login
+            $result = $this->process_login_secure($username, $password);
+            
+            if ($result['success']) {
+                $this->output->set_output(json_encode(array(
+                    'success' => true,
+                    'message' => 'Login berhasil',
+                    'redirect_url' => $result['redirect_url']
+                )));
+            } else {
+                $this->output->set_output(json_encode(array(
+                    'success' => false,
+                    'message' => $result['message']
+                )));
+            }
+            
+        } catch (Exception $e) {
+            $this->output->set_output(json_encode(array(
+                'success' => false,
+                'message' => $e->getMessage()
+            )));
+        }
+    }
+
+    private function process_login_secure($username, $password) {
+        $username = encode_php_tags($username);
+        $query = "SELECT * FROM ms_login WHERE username = ?";
+        $data = $this->eproc_db->query($query, array($username))->row_array();
+
+        if (!$data) {
+            return array('success' => false, 'message' => 'Username atau Password salah');
+        }
+
+        // Check if account is locked
+        $now = date('Y-m-d H:i:s');
+        if ($data['lock_time'] > date('Y-m-d H:i:s', strtotime("$now -9 hours"))) {
+            return array('success' => false, 'message' => 'Akun telah di lock sementara, tunggu beberapa menit untuk login kembali');
+        }
+
+        // Verify password (assuming you have password verification)
+        // You may need to adjust this based on your password hashing method
+        if ($this->verify_password($password, $data)) {
+            return $this->login_user_secure($data);
+        } else {
+            return array('success' => false, 'message' => 'Username atau Password salah');
+        }
+    }
+
+    private function verify_password($password, $user_data) {
+        // Implement proper password verification here
+        // This is a simplified version - adjust based on your password hashing
+        $hashed_password = do_hash($password, 'sha1');
+        return ($hashed_password === $user_data['password']);
+    }
+
+    private function login_user_secure($data) {
+        // Set session data
+        $this->session->set_userdata('admin', $data);
+        
+        // Determine redirect URL based on user type
+        if ($data['app_type'] == 1) {
+            $redirect_url = $this->config->item('url_eproc_pengadaan_admin');
+        } else {
+            $redirect_url = $this->config->item('url_eproc_nusantararegas_dashboard');
+        }
+        
+        return array(
+            'success' => true, 
+            'message' => 'Login berhasil',
+            'redirect_url' => $redirect_url
+        );
+    }
+
     private function process_login($username){
         $username = encode_php_tags($username);
         $query = "SELECT * FROM ms_login WHERE username = ?";

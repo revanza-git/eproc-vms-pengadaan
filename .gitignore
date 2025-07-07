@@ -1,1 +1,101 @@
- 
+# VMS eProc Security .gitignore
+
+# Environment and Configuration Files
+.env
+.env.*
+!.env.example
+
+# Database Configuration (if contains sensitive data)
+main/application/config/database.php
+pengadaan/application/config/database.php
+
+# Security Tools (remove after use)
+generate_encryption_key.php
+security_audit.php
+
+# Logs
+*.log
+main/application/logs/*
+!main/application/logs/index.html
+!main/application/logs/.htaccess
+pengadaan/application/logs/*
+!pengadaan/application/logs/index.html
+
+# Cache and Session Files
+main/application/cache/*
+!main/application/cache/index.html
+!main/application/cache/.htaccess
+pengadaan/application/cache/*
+!pengadaan/application/cache/index.html
+!pengadaan/application/cache/.htaccess
+
+# Uploaded Files and User Data
+uploads/
+temp_upload/
+lampiran/
+main/lampiran/*
+pengadaan/lampiran/*
+
+# Vendor Dependencies
+vendor/
+node_modules/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Backup Files
+*.backup
+*.bak
+*.sql
+*.dump
+
+# System Files
+.htaccess.backup
+.htpasswd
+.htgroup
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# PHP specific
+*.php~
+composer.phar
+
+# Development Tools
+phpunit.xml
+.phpunit.result.cache
+
+# Error and Debug Files
+error_log
+debug.log
+php_errors.log
+
+# Documentation Build
+docs/_build/
+
+# Package Files
+*.tar.gz
+*.zip
+*.rar
+
+# Local Configuration Override
+local_config.php
+config_local.php
+
+# Private Keys and Certificates
+*.key
+*.pem
+*.crt
+*.p12
+
+# Database Files
+*.sqlite
+*.db 
