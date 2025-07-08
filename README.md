@@ -44,11 +44,13 @@
 
 ## 🎯 Overview
 
-VMS eProc is a comprehensive, security-hardened enterprise procurement and planning management system designed for Nusantara Regas. The system features dual applications with enterprise-grade security controls:
+VMS eProc is a comprehensive, security-hardened enterprise procurement and planning management system designed for Nusantara Regas. The system has been consolidated into a unified application with enterprise-grade security controls:
 
-### **Applications**
-- **🏢 Main Application**: Authentication, planning, risk analysis, and administrative functions
-- **📊 Pengadaan Application**: Procurement processes, vendor management, and dashboard analytics
+### **Unified Application Architecture**
+- **🏢 Consolidated Application**: Single unified pengadaan application containing all functionality
+- **🔐 Secure Authentication**: Integrated authentication system with bcrypt password hashing
+- **📊 Complete Procurement Suite**: Vendor management, procurement processes, planning, and analytics
+- **🛡️ Centralized Security**: All security features integrated into the main application
 
 ### **Security Enhancements**
 - **🔐 Secure Authentication**: Bcrypt password hashing with salt
@@ -136,11 +138,11 @@ Add to `C:\Windows\System32\drivers\etc\hosts`:
 ### **3. Security Configuration**
 ```bash
 # Update encryption keys (REQUIRED!)
-# Edit main/application/config/config.php
+# Edit pengadaan/application/config/config.php
 $config['encryption_key'] = 'YOUR_NEW_32_CHAR_KEY_HERE';
 
 # Set secure database credentials
-# Edit main/application/config/database.php
+# Edit pengadaan/application/config/database.php
 ```
 
 ### **4. Database Setup**
@@ -152,8 +154,10 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON eproc_perencanaan.* TO 'eproc_secure'@'l
 FLUSH PRIVILEGES;
 ```
 
-### **5. Test Security**
-Navigate to: `http://local.eproc.vms.com/main/security_test`
+### **5. Access Application**
+Navigate to: `http://local.eproc.vms.com/`
+- Automatically redirects to the unified pengadaan application
+- All functionality is accessible through the single application interface
 
 ---
 
@@ -285,14 +289,14 @@ SET global interactive_timeout = 28800;
 
 #### **Update Configuration Files**
 ```php
-// main/application/config/config.php
+// pengadaan/application/config/config.php
 $config['encryption_key'] = 'YOUR_32_CHAR_ENCRYPTION_KEY_HERE';
 $config['csrf_protection'] = TRUE;
 $config['global_xss_filtering'] = TRUE;
 $config['compress_output'] = FALSE;  // Security over performance
 
 // Session Security
-$config['sess_cookie_name'] = 'vms_eproc_session';
+$config['sess_cookie_name'] = 'pengadaan_eksternal';
 $config['sess_expire_on_close'] = TRUE;
 $config['sess_use_database'] = TRUE;
 $config['sess_match_ip'] = TRUE;
@@ -300,7 +304,7 @@ $config['sess_match_useragent'] = TRUE;
 $config['cookie_httponly'] = TRUE;
 ```
 
-#### **Auto-load Security Libraries** (`main/application/config/autoload.php`)
+#### **Auto-load Security Libraries** (`pengadaan/application/config/autoload.php`)
 ```php
 $autoload['libraries'] = array(
     'database',
@@ -380,22 +384,25 @@ user_activities   -- User activity logs
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                    🔐 VMS eProc Secure Architecture                  │
+│                🔐 VMS eProc Unified Secure Architecture              │
 ├─────────────────────────────────────────────────────────────────────┤
 │  🌐 Frontend Layer: IIS 10 + Security Headers                       │
 ├─────────────────────────────────────────────────────────────────────┤
 │  🔒 Security Layer: CSRF + Input Validation + Session Management     │
 ├─────────────────────────────────────────────────────────────────────┤
 │  🖥️ Application Layer: PHP 5.6 + CodeIgniter 3.x                   │
-│  ┌─────────────────────┐    ┌─────────────────────────────────────┐  │
-│  │   🏢 Main App        │    │     📊 Pengadaan App                │  │
-│  │   (Secure Auth)     │◄──►│     (Procurement)                   │  │
-│  │                     │    │                                     │  │
-│  │ • 🔐 Authentication  │    │ • 👥 Vendor Management              │  │
-│  │ • 📋 Planning        │    │ • 📊 Procurement Process            │  │
-│  │ • ⚠️ Risk Analysis   │    │ • 📈 Assessment & Analytics         │  │
-│  │ • 🔒 Security Libs   │    │ • 🛡️ Input Validation              │  │
-│  └─────────────────────┘    └─────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────────────────────────────────┐  │
+│  │              📊 Unified Pengadaan Application                   │  │
+│  │                                                                 │  │
+│  │ • 🔐 Secure Authentication & Authorization                      │  │
+│  │ • 👥 Vendor Management & Registration                          │  │
+│  │ • 📊 Complete Procurement Process Management                   │  │
+│  │ • 📋 Planning & Risk Analysis Integration                      │  │
+│  │ • 📈 Assessment & Analytics Dashboard                          │  │
+│  │ • 🛡️ Integrated Security Libraries                            │  │
+│  │ • 🔒 Session Management & CSRF Protection                      │  │
+│  │ • 📊 Real-time Monitoring & Audit Logs                        │  │
+│  └─────────────────────────────────────────────────────────────────┘  │
 ├─────────────────────────────────────────────────────────────────────┤
 │  🗄️ Database Layer: MySQL 5.7.44 (Secured)                         │
 │  ┌─────────────────────┐    ┌─────────────────────────────────────┐  │
@@ -421,7 +428,7 @@ graph TD
     E --> F[👥 Authorization]
     F --> G[📊 Business Logic]
     G --> H[🗄️ Database Access]
-    H --> I[�� Audit Logging]
+    H --> I[📊 Audit Logging]
     I --> J[📱 Response]
 ```
 
@@ -431,7 +438,7 @@ graph TD
 
 ### **Security Configuration Files**
 
-#### **Main Configuration** (`main/application/config/config.php`)
+#### **Main Configuration** (`pengadaan/application/config/config.php`)
 ```php
 // Security Settings
 $config['encryption_key'] = 'YOUR_32_CHAR_ENCRYPTION_KEY_HERE';
@@ -440,7 +447,7 @@ $config['global_xss_filtering'] = TRUE;
 $config['compress_output'] = FALSE;  // Security over performance
 
 // Session Security
-$config['sess_cookie_name'] = 'vms_eproc_session';
+$config['sess_cookie_name'] = 'pengadaan_eksternal';
 $config['sess_expire_on_close'] = TRUE;
 $config['sess_use_database'] = TRUE;
 $config['sess_match_ip'] = TRUE;
@@ -448,7 +455,7 @@ $config['sess_match_useragent'] = TRUE;
 $config['cookie_httponly'] = TRUE;
 ```
 
-#### **Auto-load Security Libraries** (`main/application/config/autoload.php`)
+#### **Auto-load Security Libraries** (`pengadaan/application/config/autoload.php`)
 ```php
 $autoload['libraries'] = array(
     'database',
@@ -536,62 +543,61 @@ $this->session->set_userdata('user', $data);  // INSECURE!
 
 #### **Security Testing Tools**
 ```bash
-# Access security test suite
-http://local.eproc.vms.com/main/security_test
+# Access the unified application
+http://local.eproc.vms.com/
 
-# Available tests:
-- Input Validation Test
-- Session Security Test  
-- CSRF Protection Test
-- Password Security Test
-- File Upload Security Test
-- SQL Injection Prevention Test
+# All functionality is now integrated:
+- Secure Authentication & Login
+- Vendor Management Interface
+- Procurement Process Management
+- Planning & Assessment Tools
+- Administrative Dashboard
+- Security Features & Monitoring
 ```
 
 ---
 
 ## 🧪 Security Testing
 
-### **Automated Security Test Suite**
+### **Integrated Security Features**
 
-Access: `http://local.eproc.vms.com/main/security_test`
+The unified application includes comprehensive security testing capabilities accessible through the main interface:
 
-#### **Available Security Tests**
+#### **Available Security Features**
 
-1. **🔐 Password Security Test**
-   - Bcrypt implementation verification
-   - Password strength requirements
-   - Legacy hash migration testing
+1. **🔐 Secure Authentication System**
+   - Bcrypt password implementation
+   - Session fingerprinting and validation
+   - Automated legacy password migration
 
-2. **📝 Input Validation Test**
-   - XSS prevention validation
+2. **📝 Advanced Input Validation**
+   - XSS prevention across all forms
    - SQL injection protection
-   - File upload restrictions
-   - Data sanitization verification
+   - File upload security with restrictions
+   - Real-time data sanitization
 
-3. **🔒 Session Security Test**
-   - Session fingerprinting
-   - Hijacking prevention
-   - Timeout management
-   - Cross-session validation
+3. **🔒 Enhanced Session Management**
+   - Session hijacking prevention
+   - Timeout management with user activity tracking
+   - Cross-session validation and fingerprinting
 
-4. **📋 CSRF Protection Test**
-   - Token generation verification  
-   - Form protection validation
-   - AJAX request security
+4. **📋 CSRF Protection**
+   - Automatic token generation for all forms
+   - AJAX request security validation
+   - Form protection across all modules
 
-5. **🗄️ Database Security Test**
-   - Prepared statement verification
-   - Connection security
-   - Privilege validation
+5. **🗄️ Database Security**
+   - Prepared statements for all queries
+   - Secure connection management
+   - Access privilege validation
 
-### **Security Audit Report**
+### **Security Audit & Monitoring**
 
-The system generates comprehensive security reports including:
-- Vulnerability assessments
-- Compliance verification
-- Performance impact analysis
-- Remediation recommendations
+The system provides comprehensive security monitoring including:
+- Real-time vulnerability assessment
+- User activity and access logging
+- Security compliance verification
+- Performance impact analysis with recommendations
 
 ---
 
@@ -603,13 +609,13 @@ The system generates comprehensive security reports including:
 ```
 ❗ Issue: Legacy users cannot login
 ✅ Solution: Automatic password migration on first successful login
-🔧 Check: Verify secure_password library is loaded
+🔧 Check: Verify secure_password library is loaded in pengadaan/application/config/autoload.php
 ```
 
 #### **Session Security Issues**
 ```
 ❗ Issue: Frequent session timeouts
-✅ Solution: Adjust session configuration in config.php
+✅ Solution: Adjust session configuration in pengadaan/application/config/config.php
 🔧 Check: Verify session_security library configuration
 ```
 
@@ -617,20 +623,20 @@ The system generates comprehensive security reports including:
 ```
 ❗ Issue: Form submissions failing
 ✅ Solution: Ensure CSRF tokens are included in all forms
-🔧 Check: Verify CSRF protection is enabled in config.php
+🔧 Check: Verify CSRF protection is enabled in pengadaan/application/config/config.php
 ```
 
 #### **Database Connection Issues**
 ```
 ❗ Issue: Cannot connect to database
-✅ Solution: Verify secure database credentials
+✅ Solution: Verify secure database credentials in pengadaan/application/config/database.php
 🔧 Check: Ensure MySQL is running on port 3307
 ```
 
 #### **Library Loading Issues**
 ```
 ❗ Issue: "Unable to load the requested class" errors
-✅ Solution: Verify all security libraries are in autoload configuration
+✅ Solution: Verify all security libraries are in pengadaan/application/config/autoload.php
 🔧 Check: Ensure secure_password, input_security, session_security are loaded
 📝 Note: Built-in 'security' library should not be explicitly autoloaded
 ```
@@ -639,10 +645,10 @@ The system generates comprehensive security reports including:
 
 #### **Log Locations**
 ```
-Security Events:     application/logs/security_YYYY-MM-DD.log
-Session Events:      application/logs/session_security_YYYY-MM-DD.log
-Access Logs:         application/logs/access_YYYY-MM-DD.log
-Error Logs:          application/logs/log-YYYY-MM-DD.php
+Security Events:     pengadaan/application/logs/security_YYYY-MM-DD.log
+Session Events:      pengadaan/application/logs/session_security_YYYY-MM-DD.log
+Access Logs:         pengadaan/application/logs/access_YYYY-MM-DD.log
+Error Logs:          pengadaan/application/logs/log-YYYY-MM-DD.php
 ```
 
 #### **Critical Events to Monitor**
@@ -657,7 +663,13 @@ Error Logs:          application/logs/log-YYYY-MM-DD.php
 
 ## 📈 Migration Notes
 
-### **Security Migration Timeline**
+### **System Consolidation (December 2024)**
+
+#### **✅ Architecture Simplification Completed**
+- **Dual Application Merger**: Successfully consolidated main and pengadaan applications
+- **Unified Access Point**: Single entry point through index.php with automatic redirection
+- **Centralized Security**: All security features integrated into the unified application
+- **Simplified Maintenance**: Reduced complexity with single codebase management
 
 #### **✅ Phase 1 Completed** (Security Score: ~70%)
 - CSRF protection implementation
@@ -700,8 +712,8 @@ For security vulnerabilities or concerns:
 
 ### **System Support**
 - **Documentation**: Refer to this README and security guides
-- **Logs**: Check security logs for detailed error information
-- **Testing**: Use the security test suite for validation
+- **Logs**: Check security logs in pengadaan/application/logs/ for detailed error information
+- **Access**: Use the unified application interface for all functionality
 
 ---
 
@@ -714,9 +726,9 @@ For security vulnerabilities or concerns:
 
 ---
 
-**🎉 VMS eProc - Secure by Design**
+**🎉 VMS eProc - Unified & Secure by Design**
 
-**Current Security Score: 85%** | **Target: 95%** | **Legacy Issues: Resolved**
+**Current Security Score: 85%** | **Target: 95%** | **Architecture: Simplified & Consolidated**
 
-*Last Updated: December 2024 - Phase 2 Security Implementation Complete*
-*Latest: Library autoload configuration optimized for PHP 5.6 compatibility* 
+*Last Updated: December 2024 - System Consolidation & Phase 2 Security Implementation Complete*
+*Latest: Unified application architecture with integrated security features* 

@@ -24,6 +24,12 @@ $config['redirect_dashboard'] = "dashboard";
 $config['redirect_auction'] = "auction";
 $config['redirect_admin'] = "admin";
 
+// URL Configuration for merged authentication
+$config['url_eproc_pengadaan_dashboard'] = 'http://local.eproc.vms.com/pengadaan/dashboard';
+$config['url_eproc_pengadaan_admin'] = 'http://local.eproc.vms.com/pengadaan/admin';
+$config['url_eproc_nusantararegas_dashboard'] = 'http://local.eproc.vms.com/pengadaan/dashboard';
+$config['url_eproc_nusantararegas'] = 'http://local.eproc.vms.com/pengadaan/';
+
 // $config['BASE_LINK.']	=  	"";
 // $config['base_app']	= 	"http://eproc.nusantararegas.com/eproc_pengadaan/";
 
@@ -442,7 +448,7 @@ $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_exclude_uris'] = array('main/check');
 
 /*
 |--------------------------------------------------------------------------
