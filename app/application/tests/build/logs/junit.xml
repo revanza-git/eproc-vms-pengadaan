@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="12" assertions="12" failures="9" errors="0" time="0.817145">
+    <testsuite name="VMS Test Suite" tests="11" assertions="11" failures="9" errors="0" time="0.772128">
+      <testsuite name="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" tests="11" assertions="11" failures="9" errors="0" time="0.772128">
+        <testcase name="test_complete_authentication_flow" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="213" assertions="1" time="0.055416">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">IntegrationTest::test_complete_authentication_flow&#13;
+Status code is not 200 but 503.
+Failed asserting that 503 is identical to 200.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php:314
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:217
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_complete_auction_creation_workflow" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="250" assertions="0" time="0.030820">
+          <failure type="PHPUnit_Framework_AssertionFailedError">IntegrationTest::test_complete_auction_creation_workflow&#13;
+redirect() is not called.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php:414
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:275
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+          <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Missing argument 1 for CIPHPUnitTestCase::assertRedirect(), called in C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php on line 275 and defined
+Filename:    C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php
+Line Number: 408
+
+Backtrace:
+	File: C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php
+	Line: 408
+	Function: _error_handler
+
+	File: C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php
+	Line: 275
+	Function: assertRedirect
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\Framework\TestCase.php
+	Line: 1062
+	Function: invokeArgs
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\Framework\TestCase.php
+	Line: 913
+	Function: runTest
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\Framework\TestResult.php
+	Line: 686
+	Function: runBare
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\Framework\TestCase.php
+	Line: 868
+	Function: run
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\Framework\TestSuite.php
+	Line: 733
+	Function: run
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\Framework\TestSuite.php
+	Line: 733
+	Function: run
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\Framework\TestSuite.php
+	Line: 733
+	Function: run
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\TextUI\TestRunner.php
+	Line: 517
+	Function: run
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\TextUI\Command.php
+	Line: 186
+	Function: doRun
+
+	File: C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\src\TextUI\Command.php
+	Line: 116
+	Function: run
+
+	File: phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit
+	Line: 51
+	Function: main
+
+	File: C:\inetpub\eproc\vms\app\vendor\bin\phpunit
+	Line: 118
+	Function: include
+
+
+</system-out>
+        </testcase>
+        <testcase name="test_vendor_participation_workflow" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="315" assertions="1" time="0.056888">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">IntegrationTest::test_vendor_participation_workflow&#13;
+Status code is not 200 but 503.
+Failed asserting that 503 is identical to 200.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php:314
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:339
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_data_integrity_across_operations" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="355" assertions="1" time="0.143240">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">IntegrationTest::test_data_integrity_across_operations&#13;
+Failed asserting that null matches expected 1.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:404
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_security_across_access_levels" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="410" assertions="0" time="0.040607">
+          <failure type="PHPUnit_Framework_AssertionFailedError">IntegrationTest::test_security_across_access_levels&#13;
+redirect() is not called.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php:414
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:414
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_error_handling_across_components" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="447" assertions="2" time="0.089634">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">IntegrationTest::test_error_handling_across_components&#13;
+Status code is not 200 but 503.
+Failed asserting that 503 is identical to 200.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php:314
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:471
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_performance_under_load" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="488" assertions="1" time="0.154979">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">IntegrationTest::test_performance_under_load&#13;
+Status code is not 200 but 503.
+Failed asserting that 503 is identical to 200.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php:314
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:518
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_transaction_handling" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="525" assertions="1" time="0.034648">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">IntegrationTest::test_transaction_handling&#13;
+Failed asserting that 21 is greater than 21.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:557
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_session_management_across_requests" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="563" assertions="1" time="0.072377">
+          <failure type="PHPUnit_Framework_ExpectationFailedException">IntegrationTest::test_session_management_across_requests&#13;
+Status code is not 200 but 503.
+Failed asserting that 503 is identical to 200.
+&#13;
+C:\inetpub\eproc\vms\app\application\tests\_ci_phpunit_test\CIPHPUnitTestCase.php:314
+C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php:584
+phpvfscomposer://C:\inetpub\eproc\vms\app\vendor\phpunit\phpunit\phpunit:51
+</failure>
+        </testcase>
+        <testcase name="test_audit_logging" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="596" assertions="2" time="0.052230"/>
+        <testcase name="test_api_integration" class="IntegrationTest" file="C:\inetpub\eproc\vms\app\application\tests\integration\IntegrationTest.php" line="632" assertions="1" time="0.041289"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Smoke Tests" tests="1" assertions="1" failures="0" errors="0" time="0.045017">
+      <testsuite name="Smoke_test" file="C:\inetpub\eproc\vms\app\application\tests\Smoke_test.php" tests="1" assertions="1" failures="0" errors="0" time="0.045017">
+        <testsuite name="Smoke_test::test_controller_route" tests="1" assertions="1" failures="0" errors="0" time="0.045017">
+          <testcase name="test_controller_route with data set #7" assertions="1" time="0.045017"/>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

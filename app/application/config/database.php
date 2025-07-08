@@ -118,3 +118,39 @@ $db['perencanaan'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+// -------------------------------------------------------------------
+// TESTING DATABASE CONFIGURATION
+// -------------------------------------------------------------------
+
+if (defined('ENVIRONMENT') && ENVIRONMENT === 'testing') {
+    // When running via ci-phpunit-test Bootstrap sets ENVIRONMENT to 'testing'.
+    // We point to an isolated test database so that unit tests never touch
+    // development or production data. Ensure this schema exists (e.g., via
+    // migrations) before running the test-suite.
+
+    $active_group = 'testing';
+
+    $db['testing'] = array(
+        'dsn'      => '',
+        'hostname' => getenv('DB_HOSTNAME') ?: 'localhost',
+        'port'     => getenv('DB_PORT') ?: 3307,
+        'username' => getenv('DB_USERNAME') ?: 'root',
+        'password' => getenv('DB_PASSWORD') ?: 'Nusantara1234',
+        'database' => getenv('DB_DATABASE') ?: 'eproc_test', // dedicated test DB
+        'dbdriver' => 'mysqli',
+        'dbprefix' => '',
+        'pconnect' => FALSE,
+        'db_debug' => TRUE,
+        'cache_on' => FALSE,
+        'cachedir' => '',
+        'char_set' => 'utf8',
+        'dbcollat' => 'utf8_general_ci',
+        'swap_pre' => '',
+        'encrypt'  => FALSE,
+        'compress' => FALSE,
+        'stricton' => FALSE,
+        'failover' => array(),
+        'save_queries' => TRUE
+    );
+}
