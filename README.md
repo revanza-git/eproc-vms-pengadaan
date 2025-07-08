@@ -49,7 +49,7 @@
 VMS eProc is a comprehensive, security-hardened enterprise procurement and planning management system designed for Nusantara Regas. The system has been consolidated into a unified application with enterprise-grade security controls and modern architecture:
 
 ### **✨ Unified Application Architecture**
-- **🏢 Consolidated System**: Single unified pengadaan application containing all functionality
+- **🏢 Consolidated System**: Single unified app application containing all functionality
 - **🔐 Enterprise Security**: Integrated authentication system with bcrypt password hashing
 - **📊 Complete Procurement Suite**: Vendor management, procurement processes, planning, and analytics
 - **🛡️ Centralized Security**: All security features integrated into the main application
@@ -148,11 +148,11 @@ Add to `C:\Windows\System32\drivers\etc\hosts`:
 ### **3. Security Configuration**
 ```powershell
 # CRITICAL: Update encryption keys (REQUIRED for security!)
-# Edit pengadaan/application/config/config.php
+# Edit app/application/config/config.php
 $config['encryption_key'] = 'YOUR_NEW_32_CHAR_SECURE_KEY_HERE_2024';
 
 # Set secure database credentials
-# Edit pengadaan/application/config/database.php
+# Edit app/application/config/database.php
 $db['default']['username'] = 'eproc_secure';
 $db['default']['password'] = 'YOUR_SECURE_PASSWORD_2024';
 ```
@@ -174,7 +174,7 @@ SHOW GRANTS FOR 'eproc_secure'@'localhost';
 
 ### **5. Access Application**
 🌐 **Primary Access**: `http://local.eproc.vms.com/`
-- ✅ Automatically redirects to the unified pengadaan application
+- ✅ Automatically redirects to the unified app application
 - ✅ All functionality accessible through single application interface
 - ✅ Integrated security features active from first access
 - ✅ Real-time security monitoring enabled
@@ -309,14 +309,14 @@ SET global interactive_timeout = 28800;
 
 #### **Update Configuration Files**
 ```php
-// pengadaan/application/config/config.php
+// app/application/config/config.php
 $config['encryption_key'] = 'YOUR_32_CHAR_ENCRYPTION_KEY_HERE';
 $config['csrf_protection'] = TRUE;
 $config['global_xss_filtering'] = TRUE;
 $config['compress_output'] = FALSE;  // Security over performance
 
 // Session Security
-$config['sess_cookie_name'] = 'pengadaan_eksternal';
+$config['sess_cookie_name'] = 'app_eksternal';
 $config['sess_expire_on_close'] = TRUE;
 $config['sess_use_database'] = TRUE;
 $config['sess_match_ip'] = TRUE;
@@ -324,7 +324,7 @@ $config['sess_match_useragent'] = TRUE;
 $config['cookie_httponly'] = TRUE;
 ```
 
-#### **Auto-load Security Libraries** (`pengadaan/application/config/autoload.php`)
+#### **Auto-load Security Libraries** (`app/application/config/autoload.php`)
 ```php
 $autoload['libraries'] = array(
     'database',
@@ -458,7 +458,7 @@ graph TD
 
 ### **Security Configuration Files**
 
-#### **Main Configuration** (`pengadaan/application/config/config.php`)
+#### **Main Configuration** (`app/application/config/config.php`)
 ```php
 // Security Settings
 $config['encryption_key'] = 'YOUR_32_CHAR_ENCRYPTION_KEY_HERE';
@@ -467,7 +467,7 @@ $config['global_xss_filtering'] = TRUE;
 $config['compress_output'] = FALSE;  // Security over performance
 
 // Session Security
-$config['sess_cookie_name'] = 'pengadaan_eksternal';
+$config['sess_cookie_name'] = 'app_eksternal';
 $config['sess_expire_on_close'] = TRUE;
 $config['sess_use_database'] = TRUE;
 $config['sess_match_ip'] = TRUE;
@@ -475,7 +475,7 @@ $config['sess_match_useragent'] = TRUE;
 $config['cookie_httponly'] = TRUE;
 ```
 
-#### **Auto-load Security Libraries** (`pengadaan/application/config/autoload.php`)
+#### **Auto-load Security Libraries** (`app/application/config/autoload.php`)
 ```php
 $autoload['libraries'] = array(
     'database',
@@ -629,13 +629,13 @@ The system provides comprehensive security monitoring including:
 ```
 ❗ Issue: Legacy users cannot login
 ✅ Solution: Automatic password migration on first successful login
-🔧 Check: Verify secure_password library is loaded in pengadaan/application/config/autoload.php
+🔧 Check: Verify secure_password library is loaded in app/application/config/autoload.php
 ```
 
 #### **Session Security Issues**
 ```
 ❗ Issue: Frequent session timeouts
-✅ Solution: Adjust session configuration in pengadaan/application/config/config.php
+✅ Solution: Adjust session configuration in app/application/config/config.php
 🔧 Check: Verify session_security library configuration
 ```
 
@@ -643,20 +643,20 @@ The system provides comprehensive security monitoring including:
 ```
 ❗ Issue: Form submissions failing
 ✅ Solution: Ensure CSRF tokens are included in all forms
-🔧 Check: Verify CSRF protection is enabled in pengadaan/application/config/config.php
+🔧 Check: Verify CSRF protection is enabled in app/application/config/config.php
 ```
 
 #### **Database Connection Issues**
 ```
 ❗ Issue: Cannot connect to database
-✅ Solution: Verify secure database credentials in pengadaan/application/config/database.php
+✅ Solution: Verify secure database credentials in app/application/config/database.php
 🔧 Check: Ensure MySQL is running on port 3307
 ```
 
 #### **Library Loading Issues**
 ```
 ❗ Issue: "Unable to load the requested class" errors
-✅ Solution: Verify all security libraries are in pengadaan/application/config/autoload.php
+✅ Solution: Verify all security libraries are in app/application/config/autoload.php
 🔧 Check: Ensure secure_password, input_security, session_security are loaded
 📝 Note: Built-in 'security' library should not be explicitly autoloaded
 ```
@@ -665,10 +665,10 @@ The system provides comprehensive security monitoring including:
 
 #### **Log Locations**
 ```
-Security Events:     pengadaan/application/logs/security_YYYY-MM-DD.log
-Session Events:      pengadaan/application/logs/session_security_YYYY-MM-DD.log
-Access Logs:         pengadaan/application/logs/access_YYYY-MM-DD.log
-Error Logs:          pengadaan/application/logs/log-YYYY-MM-DD.php
+Security Events:     app/application/logs/security_YYYY-MM-DD.log
+Session Events:      app/application/logs/session_security_YYYY-MM-DD.log
+Access Logs:         app/application/logs/access_YYYY-MM-DD.log
+Error Logs:          app/application/logs/log-YYYY-MM-DD.php
 ```
 
 #### **Critical Events to Monitor**
@@ -710,6 +710,12 @@ Error Logs:          pengadaan/application/logs/log-YYYY-MM-DD.php
 - **User Training**: Security awareness and system usage documentation provided
 - **Rollback Plan**: Complete rollback procedures documented and tested
 
+#### **📁 Folder Structure Modernization (December 2024)**
+- **Application Rename**: Successfully renamed `pengadaan` folder to `app` for better clarity
+- **Configuration Updates**: All routing and configuration files updated accordingly
+- **Path Consistency**: Unified naming convention across all documentation and code
+- **Zero Downtime**: Folder rename completed with seamless application continuity
+
 ---
 
 ## 📈 Migration Notes
@@ -717,7 +723,7 @@ Error Logs:          pengadaan/application/logs/log-YYYY-MM-DD.php
 ### **✅ System Consolidation Completed (December 2024)**
 
 #### **🎉 Architecture Simplification Achieved**
-- **✅ Dual Application Merger**: Successfully consolidated main and pengadaan applications
+- **✅ Dual Application Merger**: Successfully consolidated main and app applications
 - **✅ Unified Access Point**: Single entry point through index.php with intelligent routing
 - **✅ Centralized Security**: All security features seamlessly integrated
 - **✅ Simplified Maintenance**: Reduced operational complexity by 60%
@@ -765,7 +771,7 @@ For security vulnerabilities or concerns:
 
 ### **🛠️ System Support**
 - **Documentation**: Comprehensive guides available in this README
-- **Logs**: Detailed security and error logs in `pengadaan/application/logs/`
+- **Logs**: Detailed security and error logs in `app/application/logs/`
 - **Access**: Unified application interface provides all functionality
 - **Training**: Security awareness and usage documentation available
 - **Updates**: Regular security updates and patches applied monthly
