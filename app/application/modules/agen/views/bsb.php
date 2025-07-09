@@ -47,3 +47,6 @@
 <div class="pageNumber">
 	<?php echo $pagination ?>
 </div>
+<form method="POST" enctype="multipart/form-data">
+<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
+</form>

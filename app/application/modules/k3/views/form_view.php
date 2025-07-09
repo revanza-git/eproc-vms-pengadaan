@@ -1,10 +1,12 @@
 <?php echo $this->session->flashdata('msgSuccess')?>
+<?php $this->load->helper('url'); ?>
 <div>
 	<h2 style="text-align: center">SISTEM EVALUASI MANAJEMEN K3 KONTRAKTOR<br>CHECKLIST SISTEM RATING PRA KUALIFIKASI</h2>
 	<?php 
 	//echo print_r($csms_file);
 	if(isset($csms_file['csms_file']['csms_file'])&&!empty($csms_file['csms_file']['csms_file'])){ ?>
 	<form method="POST" enctype="multipart/form-data">
+	<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<table>
 			<tr class="input-form ">
 				<td><label>Lampiran Sertifikat CSMS</label></td>
@@ -47,6 +49,7 @@
 			<a href="<?php echo site_url('k3/reset_csms/');?>" class="btnBlue"><i class="fa fa-cog"></i> Reset</a>
 		</div>
 	<form method="POST" enctype="multipart/form-data">
+	<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<div class="panel-group">
 			<?php foreach ($quest_all as $key => $header) { ?>
 			<div class="panel">
@@ -135,7 +138,9 @@
 												case 'file':
 													if(isset($data_k3[$keydata]['value'])){
 														if($data_k3[$keydata]['value']!=''){
-															echo '<p><a href="'.base_url('lampiran/'.$field_quest[$keydata]['label'].'/'.$data_k3[$keydata]['value']).'" target="_blank">Lampiran</a></p>';
+															$fld = url_title($field_quest[$keydata]['label'],'_',TRUE);
+															if($fld=='') $fld = 'k3_files';
+															echo '<p><a href="'.base_url('lampiran/'.$fld.'/'.$data_k3[$keydata]['value']).'" target="_blank">Lampiran</a></p>';
 														}else{
 															echo '-';
 														}

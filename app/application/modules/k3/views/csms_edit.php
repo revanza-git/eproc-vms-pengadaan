@@ -1,6 +1,7 @@
 <h1 class="formHeader">Edit CSMS</h1>
 <div class="formDashboard">
 	<form method="POST" enctype="multipart/form-data">
+		<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<table>
 			<tr class="input-form lampiran_csms">
 				<td><label>Lampiran CSMS</label></td>

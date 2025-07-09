@@ -450,38 +450,11 @@ class Utility{
   		),
 	);
 $context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-//echo $result;die;
-/*if($result)
-	redirect('dashboard');
-else*/
-	echo '<script>alert("Gagal Mengirim Email!");location.reload();</script>';
-		/*$config['protocol'] = 'smtp';
-$config['smtp_host'] = 'ssl://mail.nusantararegas.com';
-$config['smtp_port'] = '587';
-$config['smtp_user'] = 'vms-noreply@nusantararegas.com';
-$config['smtp_pass'] = 'Nusantara1';
-$config['mailtype'] = 'html';
-$config['charset'] = 'iso-8859-1';
-$config['wordwrap'] = TRUE;
-$config['newline'] = "\r\n";
-
-
-		$this->CI->load->library('email');
-		 		$this->CI->email->initialize($config);
- 		$this->CI->email->clear(TRUE);
-
-		$this->CI->email->from('vms-noreply@nusantararegas.com', 'VMS REGAS');
-$this->CI->email->set_newline("\r\n");
-		$this->CI->email->to($to); 
-
-		$this->CI->email->bcc('muarifgustiar@gmail.com,dzikrul65@gmail.com');
-		$this->CI->email->cc('dzikrul65@gmail.com');  
-		$this->CI->email->subject($subject);
-		
-		$this->CI->email->message($message);	
-		$this->CI->email->send();*/
-
-		//echo $this->CI->email->print_debugger();
+$result = @file_get_contents($url, false, $context);
+if($result === FALSE){
+    log_message('error', 'Utility::mail failed to send email to '.base64_decode($to));
+    return FALSE;
+}
+return TRUE;
 	}
 }

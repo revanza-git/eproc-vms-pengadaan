@@ -14,6 +14,7 @@
 <h2>Pengisian Data Pengalaman</h2>
 <div class="formDashboard">
 	<form method="POST" enctype="multipart/form-data">
+		<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<table style="width:700px;">
 			<tr class="input-form">
 				<td><label>Nama Paket Pekerjaan*</label></td>

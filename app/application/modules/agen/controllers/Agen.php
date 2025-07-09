@@ -198,8 +198,17 @@ class Agen extends CI_Controller {
 
 	
 	public function hapus($id){
+		$user = $this->session->userdata('user');
+		$data = $this->am->get_data($id);
+		
 		if($this->am->delete($id)){
-			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data!</p>');
+			if(!empty($data['agen_file'])){
+				$base = realpath(FCPATH.'../lampiran');
+				if($base === FALSE){$base = FCPATH.'lampiran';}
+				$path = rtrim($base,'/\\').'/agen_file/'.$data['agen_file'];
+				if(file_exists($path)){@unlink($path);}            
+			}
+			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data beserta lampirannya!</p>');
 			redirect(site_url('agen'));
 		}else{
 			$this->session->set_flashdata('msgSuccess','<p class="msgError">Gagal menghapus data!</p>');
@@ -210,19 +219,22 @@ class Agen extends CI_Controller {
 		
 		$file_name = $_FILES[$db_name]['name'] = $db_name.'_'.$this->utility->name_generator($_FILES[$db_name]['name']);
 		
-		$config['upload_path'] = './lampiran/'.$db_name.'/';
+		$base = realpath(FCPATH.'../lampiran');
+		if($base === FALSE){$base = FCPATH.'lampiran';}
+		$base = rtrim($base,'/\\');
+		
+		$config['upload_path'] = $base.'/'.$db_name.'/';
+		if(!is_dir($config['upload_path'])){mkdir($config['upload_path'],0755,true);}        
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif';
 		$config['max_size'] = 0;
-		
 		$this->load->library('upload');
 		$this->upload->initialize($config);
-		
-		if ( ! $this->upload->do_upload($db_name)){
+		if(!$this->upload->do_upload($db_name)){
 			$_POST[$db_name] = $file_name;
 			$this->form_validation->set_message('do_upload', $this->upload->display_errors('',''));
 			return false;
 		}else{
-			$_POST[$db_name] = $file_name; 
+			$_POST[$db_name] = $file_name;
 			return true;
 		}
 	}

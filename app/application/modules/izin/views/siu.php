@@ -13,6 +13,7 @@
 </div>
 <div class="formDashboard">
 	<form method="POST" enctype="multipart/form-data">
+		<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<table>
 		<?php foreach($dpt[$form['id_dpt_type']] as $key => $val){?>
 			<tr class="input-form">

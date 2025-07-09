@@ -1,3 +1,6 @@
+<?php
+$this->load->helper('url');
+?>
 <div>
 	<h2 style="text-align: center">FORM EVALUASI PRA KUALIFIKASI<br>
 RINGKASAN HASIL EVALUASI
@@ -146,7 +149,9 @@ RINGKASAN HASIL EVALUASI
 												case 'file':
 													if(isset($data_k3[$val_answer['id']]['value'])){
 														if($data_k3[$val_answer['id']]['value']!=''){
-															echo '<p><a href="'.base_url('lampiran/'.$field_quest[$val_answer['id']]['label'].'/'.$data_k3[$val_answer['id']]['value']).'" target="_blank">Lampiran</a></p>';
+															$fld = url_title($field_quest[$val_answer['id']]['label'],'_',TRUE);
+															if($fld=='') $fld = 'k3_files';
+															echo '<p><a href="'.base_url('lampiran/'.$fld.'/'.$data_k3[$val_answer['id']]['value']).'" target="_blank">Lampiran</a></p>';
 														}else{
 															echo '-';
 														}
@@ -249,7 +254,9 @@ RINGKASAN HASIL EVALUASI
 												case 'file':
 													if(isset($data_k3[$val_answer['id']]['value'])){
 														if($data_k3[$val_answer['id']]['value']!=''){
-															echo '<p><a href="'.base_url('lampiran/'.$field_quest[$val_answer['id']]['label'].'/'.$data_k3[$val_answer['id']]['value']).'" target="_blank">Lampiran</a></p>';
+															$fld2 = url_title($field_quest[$val_answer['id']]['label'],'_',TRUE);
+															if($fld2=='') $fld2 = 'k3_files';
+															echo '<p><a href="'.base_url('lampiran/'.$fld2.'/'.$data_k3[$val_answer['id']]['value']).'" target="_blank">Lampiran</a></p>';
 														}else{
 															echo '-';
 														}

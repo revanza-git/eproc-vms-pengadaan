@@ -2,6 +2,7 @@
 	<h2 style="text-align: center">SISTEM EVALUASI MANAJEMEN K3 KONTRAKTOR<br>CHECKLIST SISTEM RATING PRA KUALIFIKASI</h2>
 
 	<form method="POST" enctype="multipart/form-data">
+		<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<div class="panel-group">
 			<?php foreach ($quest_all as $key => $header) { ?>
 			<div class="panel">

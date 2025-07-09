@@ -270,9 +270,25 @@ class Izin extends CI_Controller {
 
 	
 	public function hapus($id){
+		$user = $this->session->userdata('user');
+		$izin_data = $this->im->get_data($id);
+
 		if($this->im->delete($id)){
+			// hapus file lampiran
+			if(!empty($izin_data['izin_file'])){
+				$base_lampiran_path = realpath(FCPATH.'../lampiran');
+				if($base_lampiran_path === FALSE){
+					$base_lampiran_path = FCPATH.'lampiran';
+				}
+				$base_lampiran_path = rtrim($base_lampiran_path, '/\\');
+				$path = $base_lampiran_path.'/izin_file/'.$izin_data['izin_file'];
+				if(file_exists($path)){
+					@unlink($path);
+				}
+			}
+
 			$this->dpt->non_iu_change($user['id_user']);
-			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data!</p>');
+			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data beserta lampirannya!</p>');
 			redirect(site_url('izin'));
 		}else{
 			$this->session->set_flashdata('msgSuccess','<p class="msgError">Gagal menghapus data!</p>');
@@ -283,19 +299,29 @@ class Izin extends CI_Controller {
 		
 		$file_name = $_FILES[$db_name]['name'] = $db_name.'_'.$this->utility->name_generator($_FILES[$db_name]['name']);
 		
-		$config['upload_path'] = './lampiran/'.$db_name.'/';
+		$base_lampiran_path = realpath(FCPATH.'../lampiran');
+		if($base_lampiran_path === FALSE){
+			$base_lampiran_path = FCPATH.'lampiran';
+		}
+		$base_lampiran_path = rtrim($base_lampiran_path, '/\\');
+
+		$config['upload_path'] = $base_lampiran_path.'/'.$db_name.'/';
+		if(!is_dir($config['upload_path'])){
+			mkdir($config['upload_path'], 0755, true);
+		}
+
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif';
-		$config['max_size'] = 0;
-		
+		$config['max_size']      = 0;
+
 		$this->load->library('upload');
 		$this->upload->initialize($config);
-		
-		if ( ! $this->upload->do_upload($db_name)){
+
+		if(!$this->upload->do_upload($db_name)){
 			$_POST[$db_name] = $file_name;
 			$this->form_validation->set_message('do_upload', $this->upload->display_errors('',''));
 			return false;
 		}else{
-			$_POST[$db_name] = $file_name; 
+			$_POST[$db_name] = $file_name;
 			return true;
 		}
 	}

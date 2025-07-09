@@ -182,34 +182,68 @@ class Administrasi extends CI_Controller {
 		$this->load->view('template',$item);
 	}
 	public function hapus($id){
+		$user = $this->session->userdata('user');
+		// Ambil data administrasi/vendor untuk mengetahui file lampiran
+		$adm_data = $this->vm->get_data($user['id_user']);
+
 		if($this->am->delete($id)){
+			// Hapus file fisik terkait jika ada
+			$attachments = array(
+				'npwp_file'  => 'npwp_file',
+				'nppkp_file' => 'nppkp_file'
+			);
+
+			foreach($attachments as $field => $dir){
+				if(!empty($adm_data[$field])){
+					$base = realpath(FCPATH.'../lampiran');
+					if($base === FALSE){
+						$base = FCPATH.'lampiran';
+					}
+					$path = rtrim($base,'/\\').'/'.$dir.'/'.$adm_data[$field];
+					if(file_exists($path)){
+						@unlink($path);
+					}
+				}
+			}
+
 			$this->dpt->non_iu_change($user['id_user']);
-			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data!</p>');
-			redirect(site_url('akta'));
+			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data beserta lampirannya!</p>');
+			redirect(site_url('administrasi'));
 		}else{
 			$this->session->set_flashdata('msgSuccess','<p class="msgError">Gagal menghapus data!</p>');
-			redirect(site_url('akta'));
+			redirect(site_url('administrasi'));
 		}
 	}
 	public function do_upload($field, $db_name = ''){	
 		
+		// Generate unique file name
 		$file_name = $_FILES[$db_name]['name'] = $db_name.'_'.$this->utility->name_generator($_FILES[$db_name]['name']);
-		
-		$config['upload_path'] = './lampiran/'.$db_name.'/';
+
+		// Resolve base lampiran directory (prefer one level above FCPATH)
+		$base_lampiran_path = realpath(FCPATH.'../lampiran');
+		if($base_lampiran_path === FALSE){
+			$base_lampiran_path = FCPATH.'lampiran';
+		}
+		$base_lampiran_path = rtrim($base_lampiran_path, '/\\');
+
+		// Ensure sub-directory exists
+		$config['upload_path'] = $base_lampiran_path.'/'.$db_name.'/';
+		if(!is_dir($config['upload_path'])){
+			mkdir($config['upload_path'], 0755, true);
+		}
+
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif';
-		// $config['max_size'] = 0;
-		
+		$config['max_size']      = 0; // unlimited, rely on php.ini limits
+
 		$this->load->library('upload');
 		$this->upload->initialize($config);
-		
-		if ( ! $this->upload->do_upload($db_name)){
+
+		if(!$this->upload->do_upload($db_name)){
 			$_POST[$db_name] = $file_name;
 			$this->form_validation->set_message('do_upload', $this->upload->display_errors('',''));
-			// echo 'false';
 			return false;
 		}else{
-			// echo 'true';
-			$_POST[$db_name] = $file_name; 
+			$_POST[$db_name] = $file_name;
 			return true;
 		}
 	}

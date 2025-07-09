@@ -231,9 +231,29 @@ class Akta extends CI_Controller {
 		$this->load->view('template',$item);
 	}
 	public function hapus($id){
+		// Ambil data user & record Akta
+		$user      = $this->session->userdata('user');
+		$akta_data = $this->am->get_data($id);
+
 		if($this->am->delete($id)){
+			// Daftar field lampiran dan direktori sub-folder-nya
+			$attachments = array(
+				'akta_file'           => 'akta_file',
+				'file_extension_akta' => 'file_extension_akta',
+				'authorize_file'      => 'authorize_file'
+			);
+
+			foreach($attachments as $field => $dir){
+				if(!empty($akta_data[$field])){
+					$path = './lampiran/'.$dir.'/'.$akta_data[$field];
+					if(file_exists($path)){
+						@unlink($path);
+					}
+				}
+			}
+
 			$this->dpt->non_iu_change($user['id_user']);
-			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data!</p>');
+			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data beserta lampirannya!</p>');
 			redirect(site_url('akta'));
 		}else{
 			$this->session->set_flashdata('msgSuccess','<p class="msgError">Gagal menghapus data!</p>');
@@ -242,21 +262,35 @@ class Akta extends CI_Controller {
 	}
 	public function do_upload($field, $db_name = ''){	
 		
+		// Generate sanitized unique file name
 		$file_name = $_FILES[$db_name]['name'] = $db_name.'_'.$this->utility->name_generator($_FILES[$db_name]['name']);
 		
-		$config['upload_path'] = './lampiran/'.$db_name.'/';
+		// Determine base lampiran directory (shared upload folder)
+		$base_lampiran_path = realpath(FCPATH.'../lampiran');
+		if($base_lampiran_path === FALSE){
+			$base_lampiran_path = FCPATH.'lampiran';
+		}
+		$base_lampiran_path = rtrim($base_lampiran_path, '/\\');
+		
+		$config['upload_path'] = $base_lampiran_path.'/'.$db_name.'/';
+		
+		// Create directory if missing
+		if(!is_dir($config['upload_path'])){
+			mkdir($config['upload_path'], 0755, true);
+		}
+		
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif';
-		$config['max_size'] = 0;
+		$config['max_size']      = 0; // unlimited (server limit applies)
 		
 		$this->load->library('upload');
 		$this->upload->initialize($config);
 		
-		if ( ! $this->upload->do_upload($db_name)){
+		if(!$this->upload->do_upload($db_name)){
 			$_POST[$db_name] = $file_name;
 			$this->form_validation->set_message('do_upload', $this->upload->display_errors('',''));
 			return false;
 		}else{
-			$_POST[$db_name] = $file_name; 
+			$_POST[$db_name] = $file_name;
 			return true;
 		}
 	}

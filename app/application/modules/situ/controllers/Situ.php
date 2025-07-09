@@ -217,9 +217,33 @@ class Situ extends CI_Controller {
 		$this->load->view('template',$item);
 	}
 	public function hapus($id){
+		$user      = $this->session->userdata('user');
+		$situ_data = $this->sm->get_data($id);
+
 		if($this->sm->delete($id)){
+			$attachments = array(
+				'situ_file'          => 'situ_file',
+				'file_extension_situ'=> 'file_extension_situ',
+				'file_photo'         => 'file_photo'
+			);
+
+			$base_lampiran_path = realpath(FCPATH.'../lampiran');
+			if($base_lampiran_path === FALSE){
+				$base_lampiran_path = FCPATH.'lampiran';
+			}
+			$base_lampiran_path = rtrim($base_lampiran_path, '/\\');
+
+			foreach($attachments as $field => $dir){
+				if(!empty($situ_data[$field])){
+					$path = $base_lampiran_path.'/'.$dir.'/'.$situ_data[$field];
+					if(file_exists($path)){
+						@unlink($path);
+					}
+				}
+			}
+
 			$this->dpt->non_iu_change($user['id_user']);
-			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data!</p>');
+			$this->session->set_flashdata('msgSuccess','<p class="msgSuccess">Sukses menghapus data beserta lampirannya!</p>');
 			redirect(site_url('situ'));
 		}else{
 			$this->session->set_flashdata('errorMsg','<p class="msgError">Gagal menghapus data!</p>');

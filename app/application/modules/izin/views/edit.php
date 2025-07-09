@@ -1,6 +1,7 @@
 <div class="formDashboard">
 	<h1 class="formHeader">Edit Izin Usaha</h1>
 	<form method="POST" enctype="multipart/form-data">
+<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<table>
 			<?php if($type!='siup'&&$type!='siujk'){ ?>
 			<tr class="input-form">

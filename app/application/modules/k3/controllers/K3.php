@@ -441,44 +441,67 @@ class K3 extends CI_Controller {
 	public function do_upload($files,$quest){
 		// echo print_r($files);
 		$this->load->library('upload');	
+		$this->load->helper('url');
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif';
-		$config['max_size'] = '2096';
+		$config['max_size'] = '0';
 
+		$all_success = TRUE;
 		foreach($files['name'] as $key => $file){
-			if($file!=''){
-				$folder = $quest[$key]['label'];
-				$file_name = $folder.'_'.$this->utility->name_generator($files['name'][$key]);
-				$_FILES['quest']['name'] = $file_name;  
-				$_FILES['quest']['size'] = $files['size'][$key];  
-				$_FILES['quest']['tmp_name'] = $files['tmp_name'][$key];  
-				$_FILES['quest']['type'] = $files['type'][$key];
-				$_FILES['quest']['error'] = $files['error'][$key];
+			if($file=='') continue; // nothing uploaded for this field
 
-				$config['upload_path'] = './lampiran/'.$folder.'/';
+			// Sanitize folder name (question label) → lowercase, underscores, alnum only
+			$raw_folder = isset($quest[$key]['label']) ? $quest[$key]['label'] : 'k3_files';
+			$folder     = url_title($raw_folder, '_', TRUE);
+			if($folder === ''){ $folder = 'k3_files'; }
 
-				if(!is_dir($config['upload_path'])){
-					mkdir($config['upload_path']);
-				}  
+			$file_name = $folder.'_'.$this->utility->name_generator($files['name'][$key]);
 
-				$this->upload->initialize($config);
-				if ( ! $this->upload->do_upload('quest')){
-					$_POST['quest'][$key] = $file_name;
-					// echo $this->upload->display_errors('','');
-					// $this->session->userdata('msgSuccess',$this->upload->display_errors('',''));
-					return false;
-				}else{
-					$_POST['quest'][$key] = $file_name;
-					return true;
-				}
+			// Re-assign single-file array expected by CI Upload library
+			$_FILES['quest']['name']     = $file_name;
+			$_FILES['quest']['size']     = $files['size'][$key];
+			$_FILES['quest']['tmp_name'] = $files['tmp_name'][$key];
+			$_FILES['quest']['type']     = $files['type'][$key];
+			$_FILES['quest']['error']    = $files['error'][$key];
+
+			// Build / ensure target directory
+			$base = realpath(FCPATH.'../lampiran');
+			if($base === FALSE){
+				$base = FCPATH.'lampiran';
+			}
+			$base = rtrim($base,'/\\');
+			$config['upload_path'] = $base.'/'.$folder.'/';
+			if(!is_dir($config['upload_path'])){
+				mkdir($config['upload_path'],0755,true);
+			}
+
+			$this->upload->initialize($config);
+
+			if ( ! $this->upload->do_upload('quest')){
+				// Preserve file name so DB still gets value (even if upload failed) for debugging
+				$_POST['quest'][$key] = $file_name;
+				$all_success = FALSE;
+				log_message('error','K3::do_upload failed for '.$file_name.' – '.$this->upload->display_errors('',''));
+			}else{
+				$_POST['quest'][$key] = $file_name;
 			}
 		}
+
+		return $all_success;
 	}
 	public function do_upload_single($field, $db_name = 'k3_files'){	
 		
 		$file_name = $_FILES[$db_name]['name'] = $db_name.'_'.$this->utility->name_generator($_FILES[$db_name]['name']);
 		
 		// $config['upload_path'] = './assets/lampiran';
-		$config['upload_path'] = realpath(FCPATH.'lampiran/k3_files');
+		$base = realpath(FCPATH.'../lampiran');
+		if($base === FALSE){
+			$base = FCPATH.'lampiran';
+		}
+		$base = rtrim($base,'/\\');
+		$config['upload_path'] = $base.'/k3_files/';
+		if(!is_dir($config['upload_path'])){
+			mkdir($config['upload_path'],0755,true);
+		}
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif|doc|docx';
 		$config['max_size'] = '5096';
 		

@@ -58,6 +58,7 @@
 <div class="filterWrapper">
 	<div class="filterWrapperInner">
 		<form method="POST">
+			<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 			<?php echo $filter_list; ?>
 		</form>
 	</div>

@@ -1,6 +1,7 @@
 <?php echo $this->session->flashdata('msgSuccess')?>
 <div class="formDashboard">
 	<form method="POST" enctype="multipart/form-data">
+		<?php echo '<input type="hidden" name="'.$this->security->get_csrf_token_name().'" value="'.$this->security->get_csrf_hash().'" />'; ?>
 		<table>
 			<tr class="input-form">
 				<td colspan="2">Apakah perusahaan anda memiliki sertifikat CSMS?</td>
