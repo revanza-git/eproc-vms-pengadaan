@@ -230,9 +230,32 @@ class Situ extends CI_Controller {
 		
 		$file_name = $_FILES[$db_name]['name'] = $db_name.'_'.$this->utility->name_generator($_FILES[$db_name]['name']);
 		
-		$config['upload_path'] = './lampiran/'.$db_name.'/';
-		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif';
-		$config['max_size'] = 0;
+		// Resolve the base "lampiran" directory. In our setup the shared upload
+		// folder is located one level above the "app" folder (FCPATH).
+		// realpath() will return FALSE if the directory does not exist yet, so
+		// we try the parent first and fall back to the original location.
+
+		$base_lampiran_path = realpath(FCPATH.'../lampiran');
+
+		// If the parent-level lampiran folder doesn't exist, we keep using the
+		// path that is relative to FCPATH (inside the app directory).
+		if ($base_lampiran_path === FALSE) {
+			$base_lampiran_path = FCPATH.'lampiran';
+		}
+
+		// Ensure we have a trailing slash before appending sub-folder names
+		$base_lampiran_path = rtrim($base_lampiran_path, '/\\');
+
+		$config['upload_path'] = $base_lampiran_path.'/'.$db_name.'/';
+
+		// Create the directory if it doesn't exist
+		if (!is_dir($config['upload_path'])) {
+			mkdir($config['upload_path'], 0755, true);
+		}
+
+		// Allow only PDF and common image formats, max 100 MB (102 400 KB)
+		$config['allowed_types'] = 'pdf|jpeg|jpg|png';
+		$config['max_size']      = 102400; // 100 MB in KB
 		
 		$this->load->library('upload');
 		$this->upload->initialize($config);

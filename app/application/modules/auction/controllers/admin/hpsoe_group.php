@@ -44,7 +44,9 @@ class Hpsoe_group extends CI_Controller{
 	function do_upload($name = '', $db_name = ''){	
 		$file_name = $_FILES[$name]['name'] = $name.'_'.$this->utility->name_generator($_FILES[$name]['name']);
 		
-		$config['upload_path'] = '../lampiran/'.$db_name.'/';
+		// Updated path: after moving 'lampiran' folder inside the 'app' directory we can
+		// use a path relative to FCPATH (the front-controller directory).
+		$config['upload_path'] = './lampiran/'.$db_name.'/';
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif';
 		$config['max_size'] = '2096';
 		

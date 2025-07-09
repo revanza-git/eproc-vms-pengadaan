@@ -16,6 +16,13 @@ class Filter{
 		}
 		// $filter = $this->CI->session->userdata('filter')[$this->CI->uri->uri_string()];
 		$filter = $this->CI->input->post('filter');
+		
+		// Ensure $filter is always an array to prevent errors
+		if(!is_array($filter)) {
+			$filter = array();
+		}
+		// ADD: generate CSRF hidden field
+		$csrf_field = '<input type="hidden" name="'.$this->CI->security->get_csrf_token_name().'" value="'.$this->CI->security->get_csrf_hash().'" />';
 
 		$html = '<div class="filter">
 				<div class="filterHeader">
@@ -28,7 +35,7 @@ class Filter{
 
 				</div>
 				<div class="groupFilterArea clearfix" style="display: block;>
-					<div class="filterForm">';
+					<div class="filterForm">'.$csrf_field;
 					
 					
 					foreach($field as $row){
@@ -54,8 +61,10 @@ class Filter{
 														 '<div class="groupFieldWrap">';
 
 												/*Make iteration for input value from posted value*/
-												foreach($filter[$value['table']] as $key => $row){
-													$html .= '<input type="text" name="filter['.$value['table'].'][]" value="'.$row.'" class="'.$value['class'].'">';
+												if(isset($filter[$value['table']]) && is_array($filter[$value['table']])) {
+													foreach($filter[$value['table']] as $key => $row){
+														$html .= '<input type="text" name="filter['.$value['table'].'][]" value="'.$row.'" class="'.$value['class'].'">';
+													}
 												}
 												
 												$html .= '<div class="plusMinusWp"><a href="#" class="addFilterGroup" ><i class="fa fa-plus"></i></a>&nbsp;<a href="#" class="removeFilterGroup" ><i class="fa fa-minus"></i></a></div></div></div>';
@@ -70,8 +79,10 @@ class Filter{
 														 '<div class="groupFieldWrap">';
 
 												/*Make iteration for input value from posted value*/
-												foreach($filter[$value['table']] as $key => $row){
-													$html .= form_dropdown('filter['.$value['table'].'][]', $data_dropdown, $row,' class="'.$value['class'].'"');
+												if(isset($filter[$value['table']]) && is_array($filter[$value['table']])) {
+													foreach($filter[$value['table']] as $key => $row){
+														$html .= form_dropdown('filter['.$value['table'].'][]', $data_dropdown, $row,' class="'.$value['class'].'"');
+													}
 												}
 
 												$html .= '<div class="plusMinusWp"><a href="#" class="addFilterGroup" ><i class="fa fa-plus"></i></a>&nbsp;<a href="#" class="removeFilterGroup" ><i class="fa fa-minus"></i></a></div></div></div>';
@@ -88,16 +99,18 @@ class Filter{
 												$html .= '</div>';
 												$html .= '<div class="dateWrap clearfix">';
 												
-												foreach($filter[$value['table']]['start_date'] as $key => $row){
+												if(isset($filter[$value['table']]['start_date']) && is_array($filter[$value['table']]['start_date'])) {
+													foreach($filter[$value['table']]['start_date'] as $key => $row){
 
-													$html .= '<div class="groupFieldBlock ">';
+														$html .= '<div class="groupFieldBlock ">';
 
-														$html .= '<label>'.$value['label'][0].'</label>';
-														$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
-														$html .= '<label>'.$value['label'][1].'</label>';
-														$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][end_date]['.$key.']','value'=>$filter[$value['table']]['end_date'][$key]), false);
-														
-													$html .= '</div>';
+															$html .= '<label>'.$value['label'][0].'</label>';
+															$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
+															$html .= '<label>'.$value['label'][1].'</label>';
+															$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][end_date]['.$key.']','value'=>$filter[$value['table']]['end_date'][$key]), false);
+															
+														$html .= '</div>';
+													}
 												}
 
 												$html.='</div>';
@@ -114,8 +127,10 @@ class Filter{
 														 '<div class="groupFieldWrap">';
 
 												/*Make iteration for input value from posted value*/
-												foreach($filter[$value['table']] as $key => $row){
-													$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
+												if(isset($filter[$value['table']]) && is_array($filter[$value['table']])) {
+													foreach($filter[$value['table']] as $key => $row){
+														$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
+													}
 												}
 												
 												$html .= '<div class="plusMinusWp"><a href="#" class="addFilterGroup" ><i class="fa fa-plus"></i></a>&nbsp;<a href="#" class="removeFilterGroup" ><i class="fa fa-minus"></i></a></div></div></div>';
@@ -131,17 +146,19 @@ class Filter{
 												$html .= '</div>';
 												$html .= '<div class="dateWrap clearfix">';
 												
-												foreach($filter[$value['table']]['start_value'] as $key => $row){
+												if(isset($filter[$value['table']]['start_value']) && is_array($filter[$value['table']]['start_value'])) {
+													foreach($filter[$value['table']]['start_value'] as $key => $row){
 
-													$html .= '<div class="groupFieldBlock ">';
+														$html .= '<div class="groupFieldBlock ">';
 
-														$html .= '<label>Nilai Minimum</label>';
+															$html .= '<label>Nilai Minimum</label>';
 
-														$html .= '<div class="dekodr-range-number">'.$this->CI->form->number(array('name'=>'filter['.$value['table'].'][start_value]['.$key.']','value'=>$filter[$value['table']]['start_value'][$key]), false).'</div>';
-														$html .= '<label>Nilai Maximum</label>';
-														$html .= '<div class="dekodr-range-number">'.$this->CI->form->number(array('name'=>'filter['.$value['table'].'][end_value]['.$key.']','value'=>$filter[$value['table']]['end_value'][$key]), false).'</div>';
-														
-													$html .= '</div>';
+															$html .= '<div class="dekodr-range-number">'.$this->CI->form->number(array('name'=>'filter['.$value['table'].'][start_value]['.$key.']','value'=>$filter[$value['table']]['start_value'][$key]), false).'</div>';
+															$html .= '<label>Nilai Maximum</label>';
+															$html .= '<div class="dekodr-range-number">'.$this->CI->form->number(array('name'=>'filter['.$value['table'].'][end_value]['.$key.']','value'=>$filter[$value['table']]['end_value'][$key]), false).'</div>';
+															
+														$html .= '</div>';
+													}
 												}
 
 												$html.='</div>';
@@ -158,16 +175,18 @@ class Filter{
 												$html .= '</div>';
 												$html .= '<div class="dateWrap clearfix">';
 												
-												foreach($filter[$value['table']]['start_date'] as $key => $row){
+												if(isset($filter[$value['table']]['start_date']) && is_array($filter[$value['table']]['start_date'])) {
+													foreach($filter[$value['table']]['start_date'] as $key => $row){
 
-													$html .= '<div class="groupFieldBlock ">';
+														$html .= '<div class="groupFieldBlock ">';
 
-														$html .= '<label>Dari Tanggal</label>';
-														$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
-														$html .= '<label>Sampai</label>';
-														$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][end_date]['.$key.']','value'=>$filter[$value['table']]['end_date'][$key]), false);
-														
-													$html .= '</div>';
+															$html .= '<label>Dari Tanggal</label>';
+															$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
+															$html .= '<label>Sampai</label>';
+															$html .= $this->CI->form->calendar_filter(array('name'=>'filter['.$value['table'].'][end_date]['.$key.']','value'=>$filter[$value['table']]['end_date'][$key]), false);
+															
+														$html .= '</div>';
+													}
 												}
 
 												$html.='</div>';
@@ -183,16 +202,18 @@ class Filter{
 												$html .= '</div>';
 												$html .= '<div class="dateWrap clearfix">';
 												
-												foreach($filter[$value['table']]['start_date'] as $key => $row){
+												if(isset($filter[$value['table']]['start_date']) && is_array($filter[$value['table']]['start_date'])) {
+													foreach($filter[$value['table']]['start_date'] as $key => $row){
 
-													$html .= '<div class="groupFieldBlock ">';
+														$html .= '<div class="groupFieldBlock ">';
 
-														$html .= '<label>Dari Tanggal</label>';
-														$html .= $this->CI->form->lifetime_calendar(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
-														$html .= '<label>Sampai</label>';
-														$html .= $this->CI->form->lifetime_calendar(array('name'=>'filter['.$value['table'].'][end_date]['.$key.']','value'=>$filter[$value['table']]['end_date'][$key]), false);
-														
-													$html .= '</div>';
+															$html .= '<label>Dari Tanggal</label>';
+															$html .= $this->CI->form->lifetime_calendar(array('name'=>'filter['.$value['table'].'][start_date]['.$key.']','value'=>$filter[$value['table']]['start_date'][$key]), false);
+															$html .= '<label>Sampai</label>';
+															$html .= $this->CI->form->lifetime_calendar(array('name'=>'filter['.$value['table'].'][end_date]['.$key.']','value'=>$filter[$value['table']]['end_date'][$key]), false);
+															
+														$html .= '</div>';
+													}
 												}
 
 												$html.='</div>';

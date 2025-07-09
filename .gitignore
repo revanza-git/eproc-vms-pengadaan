@@ -32,9 +32,18 @@ pengadaan/application/cache/*
 # Uploaded Files and User Data
 uploads/
 temp_upload/
-lampiran/
-main/lampiran/*
-pengadaan/lampiran/*
+
+# Uploads directory (now inside app folder)
+app/lampiran/
+app/lampiran/*
+
+# Ignore uploaded SITU/SKDP files
+app/lampiran/situ_file/*
+!app/lampiran/situ_file/.gitkeep
+
+# Ignore uploaded SITU extension files
+app/lampiran/file_extension_situ/*
+!app/lampiran/file_extension_situ/.gitkeep
 
 # Vendor Dependencies
 vendor/

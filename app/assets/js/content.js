@@ -1,24 +1,23 @@
-$('#npwp').iMask({
+// Initialize iMask only if the library is available
+$(document).ready(function() {
+	if ($.fn.iMask) {
+		$('#npwp').iMask({
+			type : 'fixed',
+			mask : '99.999.999.9-999.999',
+		});
 
-		type : 'fixed',
+		$('.npwp-code').iMask({
+			type : 'fixed',
+			mask : '99.999.999.9-999.999',
+		});
 
-		mask : '99.999.999.9-999.999',
-
-	});
-
-$('.npwp-code').iMask({
-
-	type : 'fixed',
-
-	mask : '99.999.999.9-999.999',
-
+		$('.money-masked').iMask({
+			type : 'number'
+		});
+	} else {
+		console.warn('iMask library not loaded - input masking disabled');
+	}
 });
-
-	$('.money-masked').iMask({
-
-		type : 'number'
-
-	});
 
 	function changeCal_date( field ){
 
@@ -162,16 +161,23 @@ $('.npwp-code').iMask({
 
 		
 
-		$('.removeFilterGroup').on('click',function(e){
-
+		$(document).on('click', '.removeFilterGroup', function(e){
+			console.log('Minus button clicked!', $(this));
 			e.preventDefault();
 
-			var formCp = $(this).closest('.groupFieldWrap');
+			var $this = $(this);
+			var formCp = $this.closest('.groupFieldWrap');
+			console.log('Found groupFieldWrap:', formCp.length);
 
-
-
-			$('input, select',formCp).last().remove();
-
+			var lastInput = $('input, select', formCp).last();
+			console.log('Found input to remove:', lastInput.length);
+			
+			if(lastInput.length > 0) {
+				lastInput.remove();
+				console.log('Removed last input successfully');
+			} else {
+				console.log('No input found to remove');
+			}
 		})
 
 		$('.removeFilterGroupDate').on('click',function(e){
@@ -194,18 +200,24 @@ $('.npwp-code').iMask({
 
 		/*Filter function*/
 
-		$('.addFilterGroup').on('click',function(e){
-			console.log('asdasdas');
+		// Use document delegation to ensure it works even for dynamically added elements
+		$(document).on('click', '.addFilterGroup', function(e){
+			console.log('Plus button clicked!', $(this));
 			e.preventDefault();
 
-			var formCp = $(this).closest('.groupFieldInput');
+			var $this = $(this);
+			var formCp = $this.closest('.groupFieldInput');
+			console.log('Found groupFieldInput:', formCp.length);
 
 			var formCl = formCp.children('.hiddenFilter').clone();
+			console.log('Cloned hidden filter:', formCl.length);
 
-
-
-			$(formCl).removeClass('hiddenFilter').attr('name',formCp.attr('name')).insertBefore(this);
-
+			if(formCl.length > 0) {
+				$(formCl).removeClass('hiddenFilter').attr('name',formCp.attr('name')).insertBefore($this);
+				console.log('Added new filter field successfully');
+			} else {
+				console.log('ERROR: No hidden filter found to clone');
+			}
 		});
 
 

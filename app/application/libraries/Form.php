@@ -552,7 +552,7 @@ class Form{
 
 			$return .= '/>';
 
-			$return .= '<p><i style="color: #D62E2E;">Format data harus PDF, JPEG, JPG, PNG, dan GIF. Max 100 MB</i></p>';
+			$return .= '<p><i style="color: #D62E2E;">Format data harus PDF, JPEG, JPG, atau PNG. Max 100 MB</i></p>';
 
 			$return .= form_error($param['name']);
 
@@ -574,7 +574,7 @@ class Form{
 						$return .= ' '.$index.'="'.$_param.'"';
 					}
 					$return .= '/>';
-					$return .= '<p><i style="color: #D62E2E;">Format data harus PDF, JPEG, JPG, PNG, dan GIF. Max 2 MB (2048 KB)</i></p>';
+					$return .= '<p><i style="color: #D62E2E;">Format data harus PDF, JPEG, JPG, atau PNG. Max 2 MB (2048 KB)</i></p>';
 					$return .= form_error($param['name']);
 
 				// $return .= '</div>';
