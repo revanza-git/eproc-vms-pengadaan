@@ -242,9 +242,11 @@ class Form{
 
 	public function text_area($param = array()){
 
-		$value = $param['value'];
+		$value = isset($param['value']) ? $param['value'] : '';
 
 		unset($param['value']);
+		
+		$return = '';
 
 
 
@@ -272,9 +274,11 @@ class Form{
 
 	public function drop_down($param = array(), $value = array()){
 
-		$selected = $param['value'];
+		$selected = isset($param['value']) ? $param['value'] : '';
 
 		unset($param['value']);
+		
+		$return = '';
 
 
 
@@ -365,7 +369,7 @@ class Form{
 	public function calendar($param = array(), $disable_day = false){
 		$return = '';
 		$class = 'dekodr-calendar';
-		if(!$param['value']) $param['value'] = 'Pilih';
+		if(!isset($param['value']) || !$param['value']) $param['value'] = 'Pilih';
 
 		for($i=1;$i<=31;$i++){ $x = $i; if($i < 10) $x = "0".$i; $day[$x] = $x; }
 
@@ -388,20 +392,22 @@ class Form{
 
 		$return .= '<div class="dekodr-calendar" style="display : inline-block">';
 
+		$param_name = isset($param['name']) ? $param['name'] : 'calendar';
+		
 		if ($param['value'] == 'Pilih') {
-			$return .= $this->drop_down(array('class' => 'dekodr-calendar-day', 'id'=>$param['name'].'_date-date',	'value' => 'Pilih','onChange'=>'changeCal_date(\''.$param['name'].'\')'), $day);
-			$return .= $this->drop_down(array('class' => 'dekodr-calendar-month', 'id'=>$param['name'].'_date-month',	'value' => 'Pilih','onChange'=>'changeCal_date(\''.$param['name'].'\')'), $month);
-			$return .= $this->drop_down(array('class' => 'dekodr-calendar-year', 'id'=>$param['name'].'_date-year', 'value' => 'Pilih','onChange'=>'changeCal_date(\''.$param['name'].'\')'), $year);		
-			$return .= $this->hidden(array('name' => $param['name'], 'class' => 'dekodr-calendar-hidden', 'value' => $param['value'],'id'=>$param['name']));
+			$return .= $this->drop_down(array('class' => 'dekodr-calendar-day', 'id'=>$param_name.'_date-date',	'value' => 'Pilih','onChange'=>'changeCal_date(\''.$param_name.'\')'), $day);
+			$return .= $this->drop_down(array('class' => 'dekodr-calendar-month', 'id'=>$param_name.'_date-month',	'value' => 'Pilih','onChange'=>'changeCal_date(\''.$param_name.'\')'), $month);
+			$return .= $this->drop_down(array('class' => 'dekodr-calendar-year', 'id'=>$param_name.'_date-year', 'value' => 'Pilih','onChange'=>'changeCal_date(\''.$param_name.'\')'), $year);		
+			$return .= $this->hidden(array('name' => $param_name, 'class' => 'dekodr-calendar-hidden', 'value' => $param['value'],'id'=>$param_name));
 			$return .= '</div>';
 		}else{
 			if(!$disable_day)
-			$return .= $this->drop_down(array('class' => 'dekodr-calendar-day', 'id'=>$param['name'].'_date-date',	'value' => date("d", strtotime($param['value'])),'onChange'=>'changeCal_date(\''.$param['name'].'\')'), $day);
+			$return .= $this->drop_down(array('class' => 'dekodr-calendar-day', 'id'=>$param_name.'_date-date',	'value' => date("d", strtotime($param['value'])),'onChange'=>'changeCal_date(\''.$param_name.'\')'), $day);
 			else		
 			$return .= $this->hidden(array('class' => 'dekodr-calendar-day', 'value' => '01'));
-			$return .= $this->drop_down(array('class' => 'dekodr-calendar-month', 'id'=>$param['name'].'_date-month',	'value' => date("m", strtotime($param['value'])),'onChange'=>'changeCal_date(\''.$param['name'].'\')'), $month);
-			$return .= $this->drop_down(array('class' => 'dekodr-calendar-year', 'id'=>$param['name'].'_date-year', 'value' => date("Y", strtotime($param['value'])),'onChange'=>'changeCal_date(\''.$param['name'].'\')'), $year);		
-			$return .= $this->hidden(array('name' => $param['name'], 'class' => 'dekodr-calendar-hidden', 'value' => $param['value'],'id'=>$param['name']));
+			$return .= $this->drop_down(array('class' => 'dekodr-calendar-month', 'id'=>$param_name.'_date-month',	'value' => date("m", strtotime($param['value'])),'onChange'=>'changeCal_date(\''.$param_name.'\')'), $month);
+			$return .= $this->drop_down(array('class' => 'dekodr-calendar-year', 'id'=>$param_name.'_date-year', 'value' => date("Y", strtotime($param['value'])),'onChange'=>'changeCal_date(\''.$param_name.'\')'), $year);		
+			$return .= $this->hidden(array('name' => $param_name, 'class' => 'dekodr-calendar-hidden', 'value' => $param['value'],'id'=>$param_name));
 			$return .= '</div>';
 		}
 
@@ -416,7 +422,7 @@ class Form{
 
 		$class = 'dekodr-calendar';
 
-		if(!$param['value']) $param['value'] = date("Y-m-d");
+		if(!isset($param['value']) || !$param['value']) $param['value'] = date("Y-m-d");
 
 
 
@@ -462,7 +468,7 @@ class Form{
 
 		if(!$disable_day)
 
-			$return .= $this->drop_down(array('class' => 'dekodr-calendar-day', 'id'=>$param['name'].'_date-date',	'value' => date("d", strtotime($param['value'])),'onClick'=>'changeCal_date_filter($(this))'), $day);
+			$return .= $this->drop_down(array('class' => 'dekodr-calendar-day', 'id'=>(isset($param['name']) ? $param['name'] : 'calendar').'_date-date',	'value' => date("d", strtotime($param['value'])),'onClick'=>'changeCal_date_filter($(this))'), $day);
 
 		else		
 
@@ -470,13 +476,13 @@ class Form{
 
 
 
-		$return .= $this->drop_down(array('class' => 'dekodr-calendar-month', 'id'=>$param['name'].'_date-month',	'value' => date("m", strtotime($param['value'])),'onClick'=>'changeCal_date_filter($(this))'), $month);
+		$return .= $this->drop_down(array('class' => 'dekodr-calendar-month', 'id'=>(isset($param['name']) ? $param['name'] : 'calendar').'_date-month',	'value' => date("m", strtotime($param['value'])),'onClick'=>'changeCal_date_filter($(this))'), $month);
 
-		$return .= $this->drop_down(array('class' => 'dekodr-calendar-year', 'id'=>$param['name'].'_date-year', 'value' => date("Y", strtotime($param['value'])),'onClick'=>'changeCal_date_filter($(this))'), $year);		
+		$return .= $this->drop_down(array('class' => 'dekodr-calendar-year', 'id'=>(isset($param['name']) ? $param['name'] : 'calendar').'_date-year', 'value' => date("Y", strtotime($param['value'])),'onClick'=>'changeCal_date_filter($(this))'), $year);		
 
 		
 
-		$return .= $this->hidden(array('name' => $param['name'], 'class' => 'dekodr-calendar-hidden', 'value' => $param['value'],'id'=>$param['name']));
+		$return .= $this->hidden(array('name' => (isset($param['name']) ? $param['name'] : 'calendar'), 'class' => 'dekodr-calendar-hidden', 'value' => $param['value'],'id'=>(isset($param['name']) ? $param['name'] : 'calendar')));
 
 
 
@@ -500,11 +506,12 @@ class Form{
 
 			$return .= '<div class="dekodr-calendar-checkbox">';
 
-				$checked = ($param['value']=='lifetime') ? 'checked' : '';
+				$checked = (isset($param['value']) && $param['value']=='lifetime') ? 'checked' : '';
 
 				$text = (isset($param['text_str'])) ? $param['text_str'] : 'Selama Perusahaan Berdiri';
 
-				$return .= '<div><label><input type="checkbox" '.$checked.' name="'.$param['name'].'" value="lifetime" class="dekodr-calendar-checkbox-input"/>'.$text.'</label></div>';
+				$param_name = isset($param['name']) ? $param['name'] : 'lifetime_checkbox';
+				$return .= '<div><label><input type="checkbox" '.$checked.' name="'.$param_name.'" value="lifetime" class="dekodr-calendar-checkbox-input"/>'.$text.'</label></div>';
 
 			$return .= '</div>';
 
@@ -520,9 +527,11 @@ class Form{
 
 	public function file($param = array()){
 
-		$path = $param['path'];
+		$path = isset($param['path']) ? $param['path'] : '';
 
 		unset($param['path']);
+		
+		$return = '';
 
 
 
@@ -540,7 +549,7 @@ class Form{
 
 
 
-		if(!$param['value']){
+		if(!isset($param['value']) || !$param['value']){
 
 			$return = '<input type="file"';
 
@@ -554,7 +563,8 @@ class Form{
 
 			$return .= '<p><i style="color: #D62E2E;">Format data harus PDF, JPEG, JPG, atau PNG. Max 100 MB</i></p>';
 
-			$return .= form_error($param['name']);
+			$param_name = isset($param['name']) ? $param['name'] : '';
+			$return .= form_error($param_name);
 
 			//$return .= $this->hidden(array('name' => $param['name'].'-path', 'value' => $path));
 
@@ -566,8 +576,10 @@ class Form{
 
 			// 	$return .= '<div class="dekodr-file-link">';
 
-					$label 	= ($param['label']!='') ? $param['label'] : $param['name'];
-					$return .= '<p><a target="_blank" href="'.base_url('lampiran/'.$label.'/'.$param['value']).'" target="_blank">Lampiran</a><p>';
+					$param_name = isset($param['name']) ? $param['name'] : '';
+					$param_label = (isset($param['label']) && $param['label']!='') ? $param['label'] : $param_name;
+					$param_value = isset($param['value']) ? $param['value'] : '';
+					$return .= '<p><a target="_blank" href="'.base_url('lampiran/'.$param_label.'/'.$param_value).'" target="_blank">Lampiran</a><p>';
 					$return .= '<input type="file"';
 					unset($param['value']);
 					foreach($param as $index => $_param){
@@ -575,7 +587,7 @@ class Form{
 					}
 					$return .= '/>';
 					$return .= '<p><i style="color: #D62E2E;">Format data harus PDF, JPEG, JPG, atau PNG. Max 2 MB (2048 KB)</i></p>';
-					$return .= form_error($param['name']);
+					$return .= form_error($param_name);
 
 				// $return .= '</div>';
 
