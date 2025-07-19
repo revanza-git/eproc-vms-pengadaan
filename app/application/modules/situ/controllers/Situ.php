@@ -185,7 +185,7 @@ class Situ extends CI_Controller {
 					);
 		}
 
-		if(($_FILES['file_extension_situ']['name']) != ""){
+		if(isset($_FILES['file_extension_situ']) && ($_FILES['file_extension_situ']['name']) != ""){
 			$vld[] = array(
 					'field'=>'file_extension_situ',
 					'label'=>'Bukti Sedang Dalam Proses Perpanjangan',

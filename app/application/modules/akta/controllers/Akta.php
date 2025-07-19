@@ -182,7 +182,7 @@ class Akta extends CI_Controller {
 				)	
 			);
 		
-		if(($_FILES['file_extension_akta']['name']) != ""){
+		if(isset($_FILES['file_extension_akta']) && ($_FILES['file_extension_akta']['name']) != ""){
 			$vld[] = array(
 					'field'=>'file_extension_akta',
 					'label'=>'Bukti Sedang Dalam Proses Perpanjangan',

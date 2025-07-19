@@ -85,7 +85,7 @@ class Tdp extends CI_Controller {
 				'rules'=>'callback_do_upload[tdp_file]'
 				)
 			);
-		if(($_FILES['extension_file']['name']) != ""){
+		if(isset($_FILES['extension_file']) && ($_FILES['extension_file']['name']) != ""){
 			$vld[] = array(
 					'field'=>'extension_file',
 					'label'=>'Bukti Perpanjangan',
@@ -110,7 +110,12 @@ class Tdp extends CI_Controller {
 			}
 		}
 
-		$layout['content']= $this->load->view('tambah',NULL,TRUE);
+		// Initialize variables for the view
+		$view_data = array(
+			'tdp_file' => '',
+			'extension_file' => ''
+		);
+		$layout['content']= $this->load->view('tambah',$view_data,TRUE);
 
 
 		$item['header'] = $this->load->view('dashboard/header',$user,TRUE);

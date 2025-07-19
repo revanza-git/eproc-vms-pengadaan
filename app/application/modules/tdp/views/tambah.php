@@ -34,14 +34,14 @@
 			<tr class="input-form">
 				<td><label>Bukti scan dokumen NIB/TDP*</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'tdp_file','value'=>($this->form->get_temp_data('tdp_file'))?$this->form->get_temp_data('tdp_file'):$tdp_file));?>
+					<?php echo $this->form->file(array('name'=>'tdp_file','value'=>($this->form->get_temp_data('tdp_file'))?$this->form->get_temp_data('tdp_file'):(isset($tdp_file) ? $tdp_file : '')));?>
 					<?php //echo form_error('tdp_file'); ?>
 				</td>
 			</tr>
 			<tr class="input-form">
 				<td><label>Bukti sedang dalam proses perpanjangan</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'extension_file','value'=>($this->form->get_temp_data('extension_file'))?$this->form->get_temp_data('extension_file'):$extension_file));?>
+					<?php echo $this->form->file(array('name'=>'extension_file','value'=>($this->form->get_temp_data('extension_file'))?$this->form->get_temp_data('extension_file'):(isset($extension_file) ? $extension_file : '')));?>
 					<?php echo form_error('extension_file'); ?>
 					<p class="notifReg">hanya diisi bila sedang dalam proses perpanjangan</p>
 				</td>

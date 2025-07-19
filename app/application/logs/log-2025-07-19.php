@@ -17,3 +17,18 @@ ERROR - 2025-07-19 12:32:47 --> Severity: Notice --> Undefined variable: tdp_fil
 ERROR - 2025-07-19 12:32:47 --> Severity: Notice --> Undefined variable: extension_file C:\inetpub\eproc\vms\app\application\modules\tdp\views\tambah.php 44
 ERROR - 2025-07-19 12:32:52 --> Severity: Notice --> Undefined variable: tdp_file C:\inetpub\eproc\vms\app\application\modules\tdp\views\tambah.php 37
 ERROR - 2025-07-19 12:32:52 --> Severity: Notice --> Undefined variable: extension_file C:\inetpub\eproc\vms\app\application\modules\tdp\views\tambah.php 44
+ERROR - 2025-07-19 12:33:24 --> 404 Page Not Found: /index
+ERROR - 2025-07-19 12:33:27 --> Severity: Notice --> Undefined variable: ubo_file C:\inetpub\eproc\vms\app\application\modules\pemilik\views\upload_surat_ubo.php 9
+ERROR - 2025-07-19 12:33:27 --> Severity: Notice --> Undefined variable: ubo_file C:\inetpub\eproc\vms\app\application\modules\pemilik\views\upload_surat_ubo.php 10
+ERROR - 2025-07-19 12:33:27 --> Severity: Notice --> Undefined variable: ubo_file C:\inetpub\eproc\vms\app\application\modules\pemilik\views\upload_surat_ubo.php 14
+ERROR - 2025-07-19 12:33:34 --> Severity: Notice --> Undefined variable: ubo_file C:\inetpub\eproc\vms\app\application\modules\pemilik\views\upload_surat_ubo.php 9
+ERROR - 2025-07-19 12:33:34 --> Severity: Notice --> Undefined variable: ubo_file C:\inetpub\eproc\vms\app\application\modules\pemilik\views\upload_surat_ubo.php 10
+ERROR - 2025-07-19 12:33:34 --> Severity: Notice --> Undefined variable: ubo_file C:\inetpub\eproc\vms\app\application\modules\pemilik\views\upload_surat_ubo.php 14
+ERROR - 2025-07-19 12:34:58 --> Severity: Notice --> Undefined index: file_extension_akta C:\inetpub\eproc\vms\app\application\modules\akta\controllers\Akta.php 185
+ERROR - 2025-07-19 12:35:44 --> Severity: Notice --> Undefined index: file_extension_akta C:\inetpub\eproc\vms\app\application\modules\akta\controllers\Akta.php 108
+ERROR - 2025-07-19 12:35:44 --> Severity: Notice --> Undefined variable: akta_file C:\inetpub\eproc\vms\app\application\modules\akta\views\tambah.php 46
+ERROR - 2025-07-19 12:35:44 --> Severity: Notice --> Undefined variable: authorize_file C:\inetpub\eproc\vms\app\application\modules\akta\views\tambah.php 74
+ERROR - 2025-07-19 12:35:44 --> Severity: Notice --> Undefined variable: file_extension_akta C:\inetpub\eproc\vms\app\application\modules\akta\views\tambah.php 80
+ERROR - 2025-07-19 12:35:49 --> Severity: Notice --> Undefined variable: akta_file C:\inetpub\eproc\vms\app\application\modules\akta\views\tambah.php 46
+ERROR - 2025-07-19 12:35:49 --> Severity: Notice --> Undefined variable: authorize_file C:\inetpub\eproc\vms\app\application\modules\akta\views\tambah.php 74
+ERROR - 2025-07-19 12:35:49 --> Severity: Notice --> Undefined variable: file_extension_akta C:\inetpub\eproc\vms\app\application\modules\akta\views\tambah.php 80

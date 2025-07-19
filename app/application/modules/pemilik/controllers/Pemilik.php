@@ -136,6 +136,11 @@ class Pemilik extends CI_Controller {
 		$data = $this->pm->get_ubo($user['id_user']);
 		
 		$data['id_aktar']	= $this->pm->get_akta_list();
+		
+		// Ensure ubo_file variable is set
+		if(!isset($data['ubo_file'])) {
+			$data['ubo_file'] = '';
+		}
 
 		$layout['content']= $this->load->view('upload_surat_ubo',$data,TRUE);
 
