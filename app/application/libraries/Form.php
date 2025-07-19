@@ -566,7 +566,7 @@ class Form{
 			$param_name = isset($param['name']) ? $param['name'] : '';
 			$return .= form_error($param_name);
 
-			//$return .= $this->hidden(array('name' => $param['name'].'-path', 'value' => $path));
+			//$return .= $this->hidden(array('name' => $param_name.'-path', 'value' => $path));
 
 		}
 
@@ -615,9 +615,9 @@ class Form{
 
 
 
-				// $return .= $this->hidden(array('name' => $param['name'].'-old', 'value' => $param['value']));
+				// $return .= $this->hidden(array('name' => $param_name.'-old', 'value' => $param_value));
 
-				// $return .= $this->hidden(array('name' => $param['name'].'-path', 'value' => $path));
+				// $return .= $this->hidden(array('name' => $param_name.'-path', 'value' => $path));
 
 			// $return .= '</div>';
 

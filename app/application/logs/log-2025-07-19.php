@@ -9,3 +9,11 @@ ERROR - 2025-07-19 12:29:47 --> Severity: Notice --> Undefined index: npwp_date 
 ERROR - 2025-07-19 12:29:47 --> Severity: Notice --> Undefined index: nppkp_date C:\inetpub\eproc\vms\app\application\modules\vendor\models\Vendor_model.php 201
 ERROR - 2025-07-19 12:29:50 --> Severity: Notice --> Undefined index: akta C:\inetpub\eproc\vms\app\application\libraries\Filter.php 244
 ERROR - 2025-07-19 12:29:50 --> Severity: Notice --> Undefined index: file_extension_akta C:\inetpub\eproc\vms\app\application\modules\akta\views\content.php 65
+ERROR - 2025-07-19 12:32:24 --> Severity: Notice --> Undefined index: file_extension_akta C:\inetpub\eproc\vms\app\application\modules\akta\controllers\Akta.php 185
+ERROR - 2025-07-19 12:32:26 --> Severity: Notice --> Undefined index: file_extension_akta C:\inetpub\eproc\vms\app\application\modules\akta\views\content.php 65
+ERROR - 2025-07-19 12:32:35 --> Severity: Notice --> Undefined index: file_extension_situ C:\inetpub\eproc\vms\app\application\modules\situ\controllers\Situ.php 188
+ERROR - 2025-07-19 12:32:47 --> Severity: Notice --> Undefined index: extension_file C:\inetpub\eproc\vms\app\application\modules\tdp\controllers\Tdp.php 88
+ERROR - 2025-07-19 12:32:47 --> Severity: Notice --> Undefined variable: tdp_file C:\inetpub\eproc\vms\app\application\modules\tdp\views\tambah.php 37
+ERROR - 2025-07-19 12:32:47 --> Severity: Notice --> Undefined variable: extension_file C:\inetpub\eproc\vms\app\application\modules\tdp\views\tambah.php 44
+ERROR - 2025-07-19 12:32:52 --> Severity: Notice --> Undefined variable: tdp_file C:\inetpub\eproc\vms\app\application\modules\tdp\views\tambah.php 37
+ERROR - 2025-07-19 12:32:52 --> Severity: Notice --> Undefined variable: extension_file C:\inetpub\eproc\vms\app\application\modules\tdp\views\tambah.php 44

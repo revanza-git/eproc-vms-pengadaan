@@ -62,7 +62,7 @@
 				<td width="100"><a href="?<?php echo $this->utility->generateLink('sort','desc')?>&sort=<?php echo ($sort['authorize_date'] == 'asc') ? 'desc' : 'asc'; ?>&by=authorize_date">Tanggal Pengesahan<i class="fa fa-sort-<?php echo ($sort['authorize_date'] == 'asc') ? 'desc' : 'asc'; ?>"></i></a></td>
 
 				<td><a href="?<?php echo $this->utility->generateLink('sort','desc')?>&sort=<?php echo ($sort['authorize_file'] == 'asc') ? 'desc' : 'asc'; ?>&by=authorize_file">Lampiran Pengesahan Akta<i class="fa fa-sort-<?php echo ($sort['authorize_file'] == 'asc') ? 'desc' : 'asc'; ?>"></i></a></td>
-				<td width="110"><a href="?<?php echo $this->utility->generateLink('sort','desc')?>&sort=<?php echo ($sort['authorize_file'] == 'asc') ? 'desc' : 'asc'; ?>&by=authorize_file">Lampiran Bukti Perpanjangan<i class="fa fa-sort-<?php echo ($sort['file_extension_akta'] == 'asc') ? 'desc' : 'asc'; ?>"></i></a></td>
+				<td width="110"><a href="?<?php echo $this->utility->generateLink('sort','desc')?>&sort=<?php echo (isset($sort['file_extension_akta']) && $sort['file_extension_akta'] == 'asc') ? 'desc' : 'asc'; ?>&by=file_extension_akta">Lampiran Bukti Perpanjangan<i class="fa fa-sort-<?php echo (isset($sort['file_extension_akta']) && $sort['file_extension_akta'] == 'asc') ? 'desc' : 'asc'; ?>"></i></a></td>
 
 				<td class="actionPanel" style="width: 100px">Action</td>
 

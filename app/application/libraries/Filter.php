@@ -241,7 +241,8 @@ class Filter{
 
 		
 		$post_filter = $this->CI->input->post('filter');
-		$sess_filter = $this->CI->session->userdata('filter')[$this->CI->uri->uri_string()];
+		$filter_session = $this->CI->session->userdata('filter');
+		$sess_filter = isset($filter_session[$this->CI->uri->uri_string()]) ? $filter_session[$this->CI->uri->uri_string()] : array();
 
 		if(is_array($post_filter)) {
 			foreach($post_filter as $key => $val_arr){
