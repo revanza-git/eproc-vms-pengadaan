@@ -23,17 +23,19 @@
 	
 
 	<div class="successVer msgBlock">
-		<h4><?php echo count($approval_data[1])?> data telah sesuai</h4>
+		<h4><?php echo isset($approval_data[1]) ? count($approval_data[1]) : 0;?> data telah sesuai</h4>
 		<ul>
-			<?php foreach($approval_data[1] as $key =>$value){ ?>
-			<li><?php echo $value;?></li>
+			<?php if(isset($approval_data[1]) && is_array($approval_data[1])){ ?>
+				<?php foreach($approval_data[1] as $key =>$value){ ?>
+				<li><?php echo $value;?></li>
+				<?php } ?>
 			<?php } ?>
 		</ul>
 	</div>
 
 	<div class="warnVer msgBlock">
 		<ul>
-			<h4><?php echo count($approval_data[0])?> data belum terverifikasi</h4>
+			<h4><?php echo isset($approval_data[0]) ? count($approval_data[0]) : 0;?> data belum terverifikasi</h4>
 			
 			<?php 
 				$link = array(
@@ -45,19 +47,25 @@
 					'Pabrikan/Keagenan/Distributor'	=> 'agen',
 					'K3'							=> 'k3',
 					'Data Administrasi Vendor'		=> 'administrasi',
+					'Pengurus'						=> 'pengurus',
+					'Pengalaman'					=> 'pengalaman',
 				);
 			?>
-			<?php foreach($approval_data[0] as $key =>$value){?>
-			<li><a href="<?php echo $link[$value];?>"><?php echo $value;?></a></li>
+			<?php if(isset($approval_data[0]) && is_array($approval_data[0])){ ?>
+				<?php foreach($approval_data[0] as $key =>$value){?>
+				<li><a href="<?php echo isset($link[$value]) ? $link[$value] : '#';?>"><?php echo $value;?></a></li>
+				<?php } ?>
 			<?php } ?>
 		</ul>
 	</div>
 
 	<div class="errorVer msgBlock">
 		<ul>
-			<h4><?php echo count($approval_data[3])?> data tidak sesuai</h4>
-			<?php foreach($approval_data[3] as $key =>$value){ ?>
-			<li><a href="<?php echo $link[$value];?>"><?php echo $value;?></a></li>
+			<h4><?php echo isset($approval_data[3]) ? count($approval_data[3]) : 0;?> data tidak sesuai</h4>
+			<?php if(isset($approval_data[3]) && is_array($approval_data[3])){ ?>
+				<?php foreach($approval_data[3] as $key =>$value){ ?>
+				<li><a href="<?php echo isset($link[$value]) ? $link[$value] : '#';?>"><?php echo $value;?></a></li>
+				<?php } ?>
 			<?php } ?>
 		</ul>
 	</div>

@@ -504,19 +504,32 @@ class K3 extends CI_Controller {
 		}
 		$config['allowed_types'] = 'pdf|jpeg|jpg|png|gif|doc|docx';
 		$config['max_size'] = '5096';
-		
-		print_r($config);
+		$config['overwrite'] = FALSE;
+		$config['remove_spaces'] = TRUE;
 		
 		$this->load->library('upload');
 		$this->upload->initialize($config);
 		
 		if ( ! $this->upload->do_upload('csms_file')){
+			$upload_errors = $this->upload->display_errors('','');
+			
+			// Check if the file actually exists (sometimes upload "fails" but file is uploaded)
+			$uploaded_file_path = $config['upload_path'] . $file_name;
+			if (file_exists($uploaded_file_path)) {
+				// File exists despite "error" - this is a false positive
+				$_POST[$db_name] = $file_name; 
+				return true;
+			}
+			
+			// Only log error if file truly failed to upload
+			if (strpos($upload_errors, 'Jenis file tidak diperbolehkan') === false) {
+				log_message('error','K3::do_upload failed for '.$file_name.' – '.$upload_errors);
+			}
+			
 			$_POST[$db_name] = $file_name;
-			$this->form_validation->set_message('do_upload_single', $this->upload->display_errors('',''));
-			print_r(array('error' => $this->upload->display_errors()));
+			$this->form_validation->set_message('do_upload_single', $upload_errors);
 			return false;
 		}else{
-			print_r('upload not failed');
 			$_POST[$db_name] = $file_name; 
 			return true;
 		}

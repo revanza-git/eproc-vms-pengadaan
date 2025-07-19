@@ -155,7 +155,8 @@ class Main_model extends CI_Model{
 						'id_division'	=>  $data['id_division'],
 						'email'			=>  $data['email'],
 						'photo_profile' =>  $data['photo_profile'],
-						'app_type' 		=>	$sql['type_app']
+						'app_type' 		=>	$sql['type_app'],
+						'type'			=> 'admin'
 					);
 					$this->session->set_userdata('admin',$set_session);
 					$this->db->where('username', $username)->update('ms_login', array(
@@ -185,7 +186,8 @@ class Main_model extends CI_Model{
 						'id_role'		=>	$data['id_role'],
 						'role_name'		=>	$data['role_name'],
 						'sbu_name'		=>	$data['sbu_name'],
-						'app'			=>	'vms'
+						'app'			=>	'vms',
+						'type'			=> 'admin'
 					);
 
 					$this->session->set_userdata('admin',$set_session);

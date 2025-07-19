@@ -5790,3 +5790,1044 @@ DEBUG - 2025-07-09 23:38:45 --> File loaded: C:\inetpub\eproc\vms\app\applicatio
 DEBUG - 2025-07-09 23:38:45 --> File loaded: C:\inetpub\eproc\vms\app\application\views\template.php
 INFO - 2025-07-09 23:38:45 --> Final output sent to browser
 DEBUG - 2025-07-09 23:38:45 --> Total execution time: 0.0963
+INFO - 2025-07-09 23:42:35 --> Config Class Initialized
+INFO - 2025-07-09 23:42:35 --> Hooks Class Initialized
+DEBUG - 2025-07-09 23:42:35 --> UTF-8 Support Enabled
+INFO - 2025-07-09 23:42:35 --> Utf8 Class Initialized
+INFO - 2025-07-09 23:42:35 --> URI Class Initialized
+INFO - 2025-07-09 23:42:35 --> Router Class Initialized
+INFO - 2025-07-09 23:42:35 --> Output Class Initialized
+INFO - 2025-07-09 23:42:35 --> Security Class Initialized
+INFO - 2025-07-09 23:42:35 --> CSRF cookie sent
+DEBUG - 2025-07-09 23:42:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:42:35 --> Input Class Initialized
+INFO - 2025-07-09 23:42:35 --> Language Class Initialized
+INFO - 2025-07-09 23:42:35 --> Language Class Initialized
+INFO - 2025-07-09 23:42:35 --> Config Class Initialized
+INFO - 2025-07-09 23:42:35 --> Loader Class Initialized
+DEBUG - 2025-07-09 23:42:35 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:42:35 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:42:35 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:42:35 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:42:35 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:42:35 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:42:35 --> Database Driver Class Initialized
+INFO - 2025-07-09 23:42:35 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-09 23:42:35 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:42:35 --> Upload Class Initialized
+INFO - 2025-07-09 23:42:35 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:42:35 --> Pagination Class Initialized
+INFO - 2025-07-09 23:42:35 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:42:35 --> Model Class Initialized
+INFO - 2025-07-09 23:42:35 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/models/Izin_model.php
+INFO - 2025-07-09 23:42:35 --> Model Class Initialized
+INFO - 2025-07-09 23:42:35 --> Encrypt Class Initialized
+ERROR - 2025-07-09 23:42:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\inetpub\eproc\vms\app\application\libraries\Filter.php 246
+ERROR - 2025-07-09 23:42:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\inetpub\eproc\vms\app\application\libraries\Filter.php 253
+ERROR - 2025-07-09 23:42:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\inetpub\eproc\vms\app\application\libraries\Filter.php 246
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/views/content.php
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/header.php
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/models/Dashboard_model.php
+INFO - 2025-07-09 23:42:35 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/user/dashboard.php
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/script2.php
+DEBUG - 2025-07-09 23:42:35 --> File loaded: C:\inetpub\eproc\vms\app\application\views\template.php
+INFO - 2025-07-09 23:42:35 --> Final output sent to browser
+DEBUG - 2025-07-09 23:42:35 --> Total execution time: 0.1276
+INFO - 2025-07-09 23:42:40 --> Config Class Initialized
+INFO - 2025-07-09 23:42:40 --> Hooks Class Initialized
+DEBUG - 2025-07-09 23:42:40 --> UTF-8 Support Enabled
+INFO - 2025-07-09 23:42:40 --> Utf8 Class Initialized
+INFO - 2025-07-09 23:42:40 --> URI Class Initialized
+INFO - 2025-07-09 23:42:40 --> Router Class Initialized
+INFO - 2025-07-09 23:42:40 --> Output Class Initialized
+INFO - 2025-07-09 23:42:40 --> Security Class Initialized
+INFO - 2025-07-09 23:42:40 --> CSRF cookie sent
+DEBUG - 2025-07-09 23:42:40 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:42:40 --> Input Class Initialized
+INFO - 2025-07-09 23:42:40 --> Language Class Initialized
+INFO - 2025-07-09 23:42:40 --> Language Class Initialized
+INFO - 2025-07-09 23:42:40 --> Config Class Initialized
+INFO - 2025-07-09 23:42:40 --> Loader Class Initialized
+DEBUG - 2025-07-09 23:42:40 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:42:40 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:42:40 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:42:40 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:42:40 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:42:40 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:42:40 --> Database Driver Class Initialized
+INFO - 2025-07-09 23:42:40 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-09 23:42:40 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:42:40 --> Upload Class Initialized
+INFO - 2025-07-09 23:42:40 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:42:40 --> Pagination Class Initialized
+INFO - 2025-07-09 23:42:40 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:40 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:42:40 --> Model Class Initialized
+INFO - 2025-07-09 23:42:40 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:42:40 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/models/Izin_model.php
+INFO - 2025-07-09 23:42:40 --> Model Class Initialized
+INFO - 2025-07-09 23:42:40 --> Encrypt Class Initialized
+DEBUG - 2025-07-09 23:42:40 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/views/edit.php
+DEBUG - 2025-07-09 23:42:40 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/header.php
+DEBUG - 2025-07-09 23:42:40 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/models/Dashboard_model.php
+INFO - 2025-07-09 23:42:40 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:40 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/user/dashboard.php
+DEBUG - 2025-07-09 23:42:40 --> File loaded: C:\inetpub\eproc\vms\app\application\views\template.php
+INFO - 2025-07-09 23:42:40 --> Final output sent to browser
+DEBUG - 2025-07-09 23:42:40 --> Total execution time: 0.1068
+INFO - 2025-07-09 23:42:44 --> Config Class Initialized
+INFO - 2025-07-09 23:42:44 --> Hooks Class Initialized
+DEBUG - 2025-07-09 23:42:44 --> UTF-8 Support Enabled
+INFO - 2025-07-09 23:42:44 --> Utf8 Class Initialized
+INFO - 2025-07-09 23:42:44 --> URI Class Initialized
+INFO - 2025-07-09 23:42:44 --> Router Class Initialized
+INFO - 2025-07-09 23:42:44 --> Output Class Initialized
+INFO - 2025-07-09 23:42:44 --> Security Class Initialized
+DEBUG - 2025-07-09 23:42:44 --> CSRF Debug — token_name: csrf_test_name post_token: 1dd078f140f830362404ce4366b356e0 cookie_token: 1dd078f140f830362404ce4366b356e0 content_length: 162495 files: ["izin_file"]
+DEBUG - 2025-07-09 23:42:44 --> CSRF token validated successfully
+DEBUG - 2025-07-09 23:42:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:42:44 --> Input Class Initialized
+INFO - 2025-07-09 23:42:44 --> Language Class Initialized
+INFO - 2025-07-09 23:42:44 --> Language Class Initialized
+INFO - 2025-07-09 23:42:44 --> Config Class Initialized
+INFO - 2025-07-09 23:42:44 --> Loader Class Initialized
+DEBUG - 2025-07-09 23:42:44 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:42:44 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:42:44 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:42:44 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:42:44 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:42:44 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:42:44 --> Database Driver Class Initialized
+INFO - 2025-07-09 23:42:44 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-09 23:42:44 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:42:44 --> Upload Class Initialized
+INFO - 2025-07-09 23:42:44 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:42:44 --> Pagination Class Initialized
+INFO - 2025-07-09 23:42:44 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:44 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:42:44 --> Model Class Initialized
+INFO - 2025-07-09 23:42:44 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:42:44 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/models/Izin_model.php
+INFO - 2025-07-09 23:42:44 --> Model Class Initialized
+INFO - 2025-07-09 23:42:44 --> Encrypt Class Initialized
+INFO - 2025-07-09 23:42:44 --> Language file loaded: language/indonesia/form_validation_lang.php
+INFO - 2025-07-09 23:42:45 --> Config Class Initialized
+INFO - 2025-07-09 23:42:45 --> Hooks Class Initialized
+DEBUG - 2025-07-09 23:42:45 --> UTF-8 Support Enabled
+INFO - 2025-07-09 23:42:45 --> Utf8 Class Initialized
+INFO - 2025-07-09 23:42:45 --> URI Class Initialized
+INFO - 2025-07-09 23:42:45 --> Router Class Initialized
+INFO - 2025-07-09 23:42:45 --> Output Class Initialized
+INFO - 2025-07-09 23:42:45 --> Security Class Initialized
+INFO - 2025-07-09 23:42:45 --> CSRF cookie sent
+DEBUG - 2025-07-09 23:42:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:42:45 --> Input Class Initialized
+INFO - 2025-07-09 23:42:45 --> Language Class Initialized
+INFO - 2025-07-09 23:42:45 --> Language Class Initialized
+INFO - 2025-07-09 23:42:45 --> Config Class Initialized
+INFO - 2025-07-09 23:42:45 --> Loader Class Initialized
+DEBUG - 2025-07-09 23:42:45 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:42:45 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:42:45 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:42:45 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:42:45 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:42:45 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:42:45 --> Database Driver Class Initialized
+INFO - 2025-07-09 23:42:45 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-09 23:42:45 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:42:45 --> Upload Class Initialized
+INFO - 2025-07-09 23:42:45 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:42:45 --> Pagination Class Initialized
+INFO - 2025-07-09 23:42:45 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:42:45 --> Model Class Initialized
+INFO - 2025-07-09 23:42:45 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/models/Izin_model.php
+INFO - 2025-07-09 23:42:45 --> Model Class Initialized
+INFO - 2025-07-09 23:42:45 --> Encrypt Class Initialized
+ERROR - 2025-07-09 23:42:45 --> Severity: Warning --> Invalid argument supplied for foreach() C:\inetpub\eproc\vms\app\application\libraries\Filter.php 246
+ERROR - 2025-07-09 23:42:45 --> Severity: Warning --> Invalid argument supplied for foreach() C:\inetpub\eproc\vms\app\application\libraries\Filter.php 246
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/views/content.php
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/header.php
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/models/Dashboard_model.php
+INFO - 2025-07-09 23:42:45 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/user/dashboard.php
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/script2.php
+DEBUG - 2025-07-09 23:42:45 --> File loaded: C:\inetpub\eproc\vms\app\application\views\template.php
+INFO - 2025-07-09 23:42:45 --> Final output sent to browser
+DEBUG - 2025-07-09 23:42:45 --> Total execution time: 0.1170
+INFO - 2025-07-09 23:42:54 --> Config Class Initialized
+INFO - 2025-07-09 23:42:54 --> Hooks Class Initialized
+DEBUG - 2025-07-09 23:42:54 --> UTF-8 Support Enabled
+INFO - 2025-07-09 23:42:54 --> Utf8 Class Initialized
+INFO - 2025-07-09 23:42:54 --> URI Class Initialized
+INFO - 2025-07-09 23:42:54 --> Router Class Initialized
+INFO - 2025-07-09 23:42:54 --> Output Class Initialized
+INFO - 2025-07-09 23:42:54 --> Security Class Initialized
+DEBUG - 2025-07-09 23:42:54 --> CSRF Debug — token_name: csrf_test_name post_token: 1dd078f140f830362404ce4366b356e0 cookie_token: 1dd078f140f830362404ce4366b356e0 content_length: 110 files: []
+DEBUG - 2025-07-09 23:42:54 --> CSRF token validated successfully
+DEBUG - 2025-07-09 23:42:54 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:42:54 --> Input Class Initialized
+INFO - 2025-07-09 23:42:54 --> Language Class Initialized
+INFO - 2025-07-09 23:42:54 --> Language Class Initialized
+INFO - 2025-07-09 23:42:54 --> Config Class Initialized
+INFO - 2025-07-09 23:42:54 --> Loader Class Initialized
+DEBUG - 2025-07-09 23:42:54 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:42:54 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:42:54 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:42:54 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:42:54 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:42:54 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:42:54 --> Database Driver Class Initialized
+INFO - 2025-07-09 23:42:54 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-09 23:42:54 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:42:54 --> Upload Class Initialized
+INFO - 2025-07-09 23:42:54 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:42:54 --> Pagination Class Initialized
+INFO - 2025-07-09 23:42:54 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:42:54 --> Model Class Initialized
+INFO - 2025-07-09 23:42:54 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/models/Izin_model.php
+INFO - 2025-07-09 23:42:54 --> Model Class Initialized
+INFO - 2025-07-09 23:42:54 --> Encrypt Class Initialized
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/izin/views/content.php
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/header.php
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/models/Dashboard_model.php
+INFO - 2025-07-09 23:42:54 --> Model Class Initialized
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/user/dashboard.php
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/dashboard/views/script2.php
+DEBUG - 2025-07-09 23:42:54 --> File loaded: C:\inetpub\eproc\vms\app\application\views\template.php
+INFO - 2025-07-09 23:42:54 --> Final output sent to browser
+DEBUG - 2025-07-09 23:42:54 --> Total execution time: 0.1184
+INFO - 2025-07-09 23:55:02 --> Config Class Initialized
+INFO - 2025-07-09 23:55:02 --> Hooks Class Initialized
+DEBUG - 2025-07-09 23:55:02 --> UTF-8 Support Enabled
+INFO - 2025-07-09 23:55:02 --> Utf8 Class Initialized
+INFO - 2025-07-09 23:55:02 --> URI Class Initialized
+INFO - 2025-07-09 23:55:02 --> Router Class Initialized
+INFO - 2025-07-09 23:55:02 --> Output Class Initialized
+INFO - 2025-07-09 23:55:02 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:02 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:02 --> Input Class Initialized
+INFO - 2025-07-09 23:55:02 --> Language Class Initialized
+INFO - 2025-07-09 23:55:02 --> Language Class Initialized
+INFO - 2025-07-09 23:55:02 --> Config Class Initialized
+INFO - 2025-07-09 23:55:02 --> Loader Class Initialized
+DEBUG - 2025-07-09 23:55:02 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:02 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:02 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:02 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:02 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:02 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:02 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:02 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:02 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:02 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:02 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:02 --> Pagination Class Initialized
+INFO - 2025-07-09 23:55:02 --> Model Class Initialized
+DEBUG - 2025-07-09 23:55:02 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:02 --> Model Class Initialized
+INFO - 2025-07-09 23:55:02 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:55:02 --> MX_Controller MX_Controller Initialized
+INFO - 2025-07-09 23:55:02 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:02 --> Config Class Initialized
+INFO - 2025-07-09 23:55:03 --> Helper loaded: security_helper
+DEBUG - 2025-07-09 23:55:03 --> Secure_Password Library Initialized
+DEBUG - 2025-07-09 23:55:03 --> Secure_Password: Password hash generated successfully
+ERROR - 2025-07-09 23:55:03 --> Query error: Unknown column 'app_type' in 'field list' - Invalid query: INSERT INTO `ms_login` (`id`, `id_user`, `type`, `app_type`, `type_app`, `username`, `password`, `attempts`, `lock_time`, `entry_stamp`, `edit_stamp`, `del`) VALUES (1, 1, 'admin', 0, 0, 'integrationadmin', '$2y$12$b5kxnpKl9yErstSTwNbVPe7cD6/tBHC2qvq15ilP/xT/AY7E1kdke', 0, '2000-01-01 00:00:00', '2024-01-01 00:00:00', '2024-01-01 00:00:00', 0)
+INFO - 2025-07-09 23:55:03 --> Language file loaded: language/indonesia/db_lang.php
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Hooks Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> UTF-8 Support Enabled
+INFO - 2025-07-09 23:55:31 --> Utf8 Class Initialized
+INFO - 2025-07-09 23:55:31 --> URI Class Initialized
+INFO - 2025-07-09 23:55:31 --> Router Class Initialized
+INFO - 2025-07-09 23:55:31 --> Output Class Initialized
+INFO - 2025-07-09 23:55:31 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:31 --> Input Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:31 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:31 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:31 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:31 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:31 --> Pagination Class Initialized
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> File loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+INFO - 2025-07-09 23:55:31 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> MX_Controller MX_Controller Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:31 --> URI Class Initialized
+INFO - 2025-07-09 23:55:31 --> Router Class Initialized
+INFO - 2025-07-09 23:55:31 --> Output Class Initialized
+INFO - 2025-07-09 23:55:31 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:31 --> Input Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:31 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:31 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:31 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:31 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:31 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+INFO - 2025-07-09 23:55:31 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:31 --> URI Class Initialized
+INFO - 2025-07-09 23:55:31 --> Router Class Initialized
+INFO - 2025-07-09 23:55:31 --> Output Class Initialized
+INFO - 2025-07-09 23:55:31 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:31 --> Input Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:31 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:31 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:31 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:31 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:31 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+INFO - 2025-07-09 23:55:31 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:31 --> URI Class Initialized
+INFO - 2025-07-09 23:55:31 --> Router Class Initialized
+INFO - 2025-07-09 23:55:31 --> Output Class Initialized
+INFO - 2025-07-09 23:55:31 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:31 --> Input Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:31 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:31 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:31 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:31 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:31 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+INFO - 2025-07-09 23:55:31 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:31 --> URI Class Initialized
+INFO - 2025-07-09 23:55:31 --> Router Class Initialized
+INFO - 2025-07-09 23:55:31 --> Output Class Initialized
+INFO - 2025-07-09 23:55:31 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:31 --> Input Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:31 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:31 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:31 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:31 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:31 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+INFO - 2025-07-09 23:55:31 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:31 --> URI Class Initialized
+INFO - 2025-07-09 23:55:31 --> Router Class Initialized
+INFO - 2025-07-09 23:55:31 --> Output Class Initialized
+INFO - 2025-07-09 23:55:31 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:31 --> Input Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:31 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:31 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:31 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:31 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:31 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+INFO - 2025-07-09 23:55:31 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:31 --> URI Class Initialized
+INFO - 2025-07-09 23:55:31 --> Router Class Initialized
+INFO - 2025-07-09 23:55:31 --> Output Class Initialized
+INFO - 2025-07-09 23:55:31 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:31 --> Input Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language Class Initialized
+INFO - 2025-07-09 23:55:31 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:31 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:31 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:31 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:31 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:31 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:31 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:31 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:31 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:31 --> Model Class Initialized
+INFO - 2025-07-09 23:55:31 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> MX_Controller MX_Controller Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Hooks Class Initialized
+INFO - 2025-07-09 23:55:32 --> URI Class Initialized
+INFO - 2025-07-09 23:55:32 --> Router Class Initialized
+INFO - 2025-07-09 23:55:32 --> Output Class Initialized
+INFO - 2025-07-09 23:55:32 --> Security Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-09 23:55:32 --> Input Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Loader Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language Class Initialized
+INFO - 2025-07-09 23:55:32 --> Config Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Config file loaded: C:\inetpub\eproc\vms\app\application\config/email.php
+INFO - 2025-07-09 23:55:32 --> Helper loaded: form_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: url_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: email_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: utility_helper
+INFO - 2025-07-09 23:55:32 --> Helper loaded: security_helper
+INFO - 2025-07-09 23:55:32 --> Database Driver Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> Session: Initialization under CLI aborted.
+INFO - 2025-07-09 23:55:32 --> Form Validation Class Initialized
+INFO - 2025-07-09 23:55:32 --> Upload Class Initialized
+INFO - 2025-07-09 23:55:32 --> Language file loaded: language/indonesia/pagination_lang.php
+INFO - 2025-07-09 23:55:32 --> Pagination Class Initialized
+DEBUG - 2025-07-09 23:55:32 --> File already loaded: C:\inetpub\eproc\vms\app\application\modules/vendor/models/Vendor_model.php
+INFO - 2025-07-09 23:55:32 --> Model Class Initialized
+INFO - 2025-07-09 23:55:32 --> Controller Class Initialized

@@ -243,18 +243,22 @@ class Filter{
 		$post_filter = $this->CI->input->post('filter');
 		$sess_filter = $this->CI->session->userdata('filter')[$this->CI->uri->uri_string()];
 
-		foreach($post_filter as $key => $val_arr){
-			if(isset($val_arr[0])){
-				if(count($val_arr[0])==1 && $val_arr[0]=='' ) 
-					unset($post_filter[$key]);
+		if(is_array($post_filter)) {
+			foreach($post_filter as $key => $val_arr){
+				if(isset($val_arr[0])){
+					if(count($val_arr[0])==1 && $val_arr[0]=='' ) 
+						unset($post_filter[$key]);
+				}
 			}
 		}
 		
-		foreach($sess_filter as $key => $val_arr){
-			// if(isset($val_arr[0])){
-				if(!isset($post_filter[$key])) 
+		if(is_array($sess_filter)) {
+			foreach($sess_filter as $key => $val_arr){
+				// if(isset($val_arr[0])){
+					if(!isset($post_filter[$key])) 
 					unset($sess_filter[$key]);
 			// }
+			}
 		}
 
 		if(empty($filter_session[$this->CI->uri->uri_string()]) || !isset($filter_session[$this->CI->uri->uri_string()])){

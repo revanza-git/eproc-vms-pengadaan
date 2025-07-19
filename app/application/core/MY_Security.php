@@ -67,7 +67,7 @@ class MY_Security extends CI_Security {
 	public function csrf_verify()
 	{
 		// If CSRF protection is disabled, behave like parent
-		if ($this->_csrf_protection === FALSE)
+		if (config_item('csrf_protection') === FALSE)
 		{
 			return parent::csrf_verify();
 		}
@@ -95,7 +95,7 @@ class MY_Security extends CI_Security {
 		log_message('debug', "CSRF Debug — token_name: {$this->_csrf_token_name} post_token: $post_token cookie_token: $cookie_token content_length: $content_length files: " . json_encode($files_info));
 
 		// If no $_POST data, it could be a CSRF attack
-		if (empty($_POST) && $this->_csrf_protection && ! $this->csrf_exclude_uris())
+		if (empty($_POST) && config_item('csrf_protection') && ! $this->csrf_exclude_uris())
 		{
 			$this->csrf_show_error();
 		}
@@ -121,7 +121,7 @@ class MY_Security extends CI_Security {
 		}
 
 		// If regenerate option is true, remove the token and create a new one
-		if ($this->_csrf_regenerate)
+		if (config_item('csrf_regenerate'))
 		{
 			unset($_POST[$this->_csrf_token_name]);
 			$this->_csrf_set_hash();

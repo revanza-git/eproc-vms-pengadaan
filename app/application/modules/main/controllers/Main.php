@@ -8,6 +8,7 @@ class Main extends CI_Controller {
         parent::__construct();
         $this->load->helper('string');
         $this->load->model('Main_model', 'mm');
+        // Note: JWT token library removed - using key-based authentication instead
     }
 
     public function index() {	
@@ -25,6 +26,19 @@ class Main extends CI_Controller {
     }
 
     private function redirect_admin($admin){
+        // Check if this admin should be redirected to main project with key-based auth
+        if (isset($admin['type']) && $admin['type'] === 'admin') {
+            $redirect_url = $this->generate_admin_auth_for_main($admin);
+            if ($redirect_url) {
+                log_message('info', 'Redirecting admin user ' . $admin['id_user'] . ' to main project with auth key');
+                redirect($redirect_url);
+                return;
+            } else {
+                log_message('error', 'Failed to generate auth key for admin user: ' . $admin['id_user']);
+            }
+        }
+
+        // Fallback to original logic for non-JWT admin users
         if (isset($admin['id_role']) && $admin['id_role'] == 6) {
             redirect($this->config->item('redirect_auction'));
         } elseif (isset($admin['app_type']) && $admin['app_type'] == 1) {
@@ -53,10 +67,19 @@ class Main extends CI_Controller {
                     // For users, redirect to dashboard module
                     redirect(site_url('dashboard'));
                 } elseif ($admin) {
-                    if (isset($admin['id_role']) && $admin['id_role'] == 6) {
-                        redirect(site_url('auction'));
+                    // For admin users, use key-based authentication system and redirect to main project
+                    $redirect_url = $this->generate_admin_auth_for_main($admin);
+                    if ($redirect_url) {
+                        log_message('info', 'Admin login successful, redirecting to main project: ' . $admin['id_user']);
+                        redirect($redirect_url);
                     } else {
-                        redirect(site_url('admin'));
+                        // Fallback to original admin redirect logic
+                        log_message('warning', 'Key generation failed, using fallback redirect for admin: ' . $admin['id_user']);
+                        if (isset($admin['id_role']) && $admin['id_role'] == 6) {
+                            redirect(site_url('auction'));
+                        } else {
+                            redirect(site_url('admin'));
+                        }
                     }
                 } else {
                     // No valid session found after login
@@ -170,10 +193,25 @@ class Main extends CI_Controller {
     }
 
     private function login_user_secure($data) {
-        // Set session data
+        // Set session data first
         $this->session->set_userdata('admin', $data);
         
-        // Determine redirect URL based on user type
+        // Get the updated admin session data
+        $admin = $this->session->userdata('admin');
+        
+        // For admin users, use key-based authentication system and redirect to main project
+        if ($admin && isset($admin['type']) && $admin['type'] === 'admin') {
+            $redirect_url = $this->generate_admin_auth_for_main($admin);
+            if ($redirect_url) {
+                return array(
+                    'success' => true, 
+                    'message' => 'Login berhasil',
+                    'redirect_url' => $redirect_url
+                );
+            }
+        }
+        
+        // Fallback to original logic
         if ($data['app_type'] == 1) {
             $redirect_url = $this->config->item('url_eproc_pengadaan_admin');
         } else {
@@ -225,10 +263,18 @@ class Main extends CI_Controller {
     }
 
     private function handle_admin_login($admin){
-        if (isset($admin['id_role']) && $admin['id_role'] == 6) {
-            redirect($this->config->item('redirect_auction'));
+        // Use key-based authentication system for admin redirects
+        $redirect_url = $this->generate_admin_auth_for_main($admin);
+        if ($redirect_url) {
+            log_message('info', 'Admin login redirect with auth key: ' . $admin['id_user']);
+            redirect($redirect_url);
         } else {
-            redirect($this->config->item('redirect_admin'));
+            // Fallback to original logic
+            if (isset($admin['id_role']) && $admin['id_role'] == 6) {
+                redirect($this->config->item('redirect_auction'));
+            } else {
+                redirect($this->config->item('redirect_admin'));
+            }
         }
     }
 
@@ -240,7 +286,18 @@ class Main extends CI_Controller {
     }
 
     private function generate_unique_key(){
-        return uniqid() . time() . random_string('alnum', 10);
+        if (function_exists('random_string')) {
+            // Use CodeIgniter's random_string helper
+            return uniqid() . time() . random_string('alnum', 10);
+        } else {
+            // Fallback method
+            $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            $random = '';
+            for ($i = 0; $i < 10; $i++) {
+                $random .= $chars[rand(0, strlen($chars) - 1)];
+            }
+            return uniqid() . time() . $random;
+        }
     }
 
     private function prepare_user_data($user_data, $type){
@@ -315,6 +372,42 @@ class Main extends CI_Controller {
             $this->_setFlashMessageAndRedirect('Isi form dengan benar!');
         }
     }
+
+    /**
+     * JWT Token validation endpoint (for intra domain verification)
+     */
+    public function validate_jwt(){
+        $token = $this->input->get('jwt') ?: $this->input->post('jwt');
+        
+        if (!$token) {
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode(array(
+                'success' => false,
+                'message' => 'No JWT token provided'
+            )));
+            return;
+        }
+        
+        $decoded = $this->jwt_token->validate_token($token);
+        
+        if ($decoded) {
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode(array(
+                'success' => true,
+                'message' => 'Token is valid',
+                'data' => $decoded['data']
+            )));
+        } else {
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode(array(
+                'success' => false,
+                'message' => 'Invalid or expired JWT token'
+            )));
+        }
+    }
+
+    // Note: from_eks() method is implemented in the main project at local.eproc.intra.com
+    // This VMS application only generates keys and redirects to the main project
 
     // Private Helper Methods
     private function _isValidKey($key) {
@@ -441,6 +534,65 @@ class Main extends CI_Controller {
         }
         if ($admin) {
             echo "<p><a href='" . site_url('admin') . "'>Go to Admin</a></p>";
+        }
+    }
+
+    /**
+     * Generate external authentication for admin redirect to main project
+     * This method should be called when VMS admin needs to be redirected to main project
+     */
+    public function generate_admin_auth_for_main($admin_data) {
+        try {
+            log_message('info', 'generate_admin_auth_for_main called with data: ' . json_encode($admin_data));
+            
+            // Generate secure unique key
+            $key = $this->generate_unique_key();
+            log_message('info', 'Generated key: ' . $key);
+            
+            // Prepare admin data in the format expected by main project's from_eks()
+            $auth_data = array(
+                "name" => $admin_data['name'],
+                "id_user" => $admin_data['id_user'],
+                "id_role" => $admin_data['id_role'],
+                "id_division" => isset($admin_data['id_division']) ? $admin_data['id_division'] : 1,
+                "email" => isset($admin_data['email']) ? $admin_data['email'] : 'admin@example.com',
+                "photo_profile" => isset($admin_data['photo_profile']) ? $admin_data['photo_profile'] : 'profile.jpg',
+                "app_type" => isset($admin_data['app_type']) ? $admin_data['app_type'] : 2
+            );
+            
+            log_message('info', 'Prepared auth data: ' . json_encode($auth_data));
+            
+            // Store in ms_key_value table
+            // Check if created_at column exists
+            $fields = $this->db->list_fields('ms_key_value');
+            $has_created_at = in_array('created_at', $fields);
+            
+            $insert_data = array(
+                'key' => $key,
+                'value' => json_encode($auth_data)
+            );
+            
+            if ($has_created_at) {
+                $insert_data['created_at'] = date('Y-m-d H:i:s');
+            }
+            
+            log_message('info', 'Attempting to insert key into database with data: ' . json_encode($insert_data));
+            $this->db->insert('ms_key_value', $insert_data);
+            
+            if ($this->db->affected_rows() > 0) {
+                // Generate redirect URL to main project
+                $redirect_url = "http://local.eproc.intra.com/main/from_eks?key=" . $key;
+                log_message('info', 'Admin auth key generated successfully. Redirect URL: ' . $redirect_url);
+                return $redirect_url;
+            } else {
+                log_message('error', 'Failed to insert auth key - no rows affected. DB Error: ' . $this->db->error()['message']);
+                return false;
+            }
+            
+        } catch (Exception $e) {
+            log_message('error', 'Exception in generate_admin_auth_for_main: ' . $e->getMessage());
+            log_message('error', 'Stack trace: ' . $e->getTraceAsString());
+            return false;
         }
     }
 }

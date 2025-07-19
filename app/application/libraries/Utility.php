@@ -120,13 +120,16 @@ class Utility{
 			
 			$data = $sql->row_array(); 
 
-			return $data[$name];
+			return isset($data[$name]) ? $data[$name] : null;
 		}
-		else if($this->CI->session->userdata('admin'))
+		else if($this->CI->session->userdata('admin')){
 			$sess = $this->CI->session->userdata('admin');
 			if(!empty($sess)){
-				return $sess[$name];
+				return isset($sess[$name]) ? $sess[$name] : null;
 			}
+		}
+		
+		return null;
 	}
 
 	function get_nama($id = ''){

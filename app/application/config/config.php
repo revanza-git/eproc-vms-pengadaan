@@ -1,6 +1,11 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Load environment variables before using them
+if (!function_exists('env')) {
+    require_once(dirname(dirname(__FILE__)) . '/env_loader.php');
+}
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -17,19 +22,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['BASE_LINK.']	=  	"http://local.eproc.vms.com/app/";
-$config['base_app']		= 	"http://local.eproc.vms.com/app/";
-$config['external_url'] = "http://local.eproc.vms.com/main";
-$config['redirect_dashboard'] = "dashboard";
-$config['redirect_auction'] = "auction";
-$config['redirect_admin'] = "admin";
+// Base URL Configuration using Environment Variables
+$config['BASE_LINK.']	= env('BASE_URL', 'http://local.eproc.vms.com/app/');
+$config['base_app']		= env('BASE_URL', 'http://local.eproc.vms.com/app/');
+$config['external_url'] = env('EXTERNAL_URL', 'http://local.eproc.vms.com/main');
+$config['redirect_dashboard'] = env('REDIRECT_DASHBOARD', 'dashboard');
+$config['redirect_auction'] = env('REDIRECT_AUCTION', 'auction');
+$config['redirect_admin'] = env('REDIRECT_ADMIN', 'admin');
 
-// URL Configuration for merged authentication
-$config['url_eproc_pengadaan_dashboard'] = 'http://local.eproc.vms.com/app/dashboard';
-$config['url_eproc_pengadaan_admin'] = 'http://local.eproc.vms.com/app/admin';
-$config['url_eproc_nusantararegas_dashboard'] = 'http://local.eproc.vms.com/app/dashboard';
-$config['url_eproc_nusantararegas'] = 'http://local.eproc.vms.com/app/';
+// Admin Intra Domain Configuration
+$config['admin_intra_url'] = env('ADMIN_INTRA_URL', 'http://local.eproc.intra.com/main');
+$config['jwt_secret_key'] = env('JWT_SECRET_KEY', 'your_jwt_secret_key_here_change_in_production');
+$config['jwt_algorithm'] = env('JWT_ALGORITHM', 'HS256');
+$config['jwt_expire_time'] = env('JWT_EXPIRE_TIME', 3600); // 1 hour
 
+// URL Configuration for merged authentication using Environment Variables
+$config['url_eproc_pengadaan_dashboard'] = env('PENGADAAN_DASHBOARD_URL', env('BASE_URL', 'http://local.eproc.vms.com/app/') . 'dashboard');
+$config['url_eproc_pengadaan_admin'] = env('PENGADAAN_ADMIN_URL', env('BASE_URL', 'http://local.eproc.vms.com/app/') . 'admin');
+$config['url_eproc_nusantararegas_dashboard'] = env('NUSANTARA_DASHBOARD_URL', env('BASE_URL', 'http://local.eproc.vms.com/app/') . 'dashboard');
+$config['url_eproc_nusantararegas'] = env('NUSANTARA_BASE_URL', env('BASE_URL', 'http://local.eproc.vms.com/app/'));
+
+// Legacy configurations (commented for reference)
 // $config['BASE_LINK.']	=  	"";
 // $config['base_app']	= 	"http://eproc.nusantararegas.com/eproc_pengadaan/";
 
@@ -221,7 +234,7 @@ $config['directory_trigger'] = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 4;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
@@ -322,7 +335,7 @@ $config['cache_query_string'] = FALSE;
 | http://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'pgn_vms';
+$config['encryption_key'] = env('ENCRYPTION_KEY', 'pgn_vms');
 
 /*
 |--------------------------------------------------------------------------
@@ -372,9 +385,9 @@ $config['encryption_key'] = 'pgn_vms';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'app_eksternal';
-$config['sess_expiration'] = 7200;
+$config['sess_driver'] = env('SESSION_DRIVER', 'files');
+$config['sess_cookie_name'] = env('SESSION_COOKIE_NAME', 'app_eksternal');
+$config['sess_expiration'] = env('SESSION_EXPIRE', 7200);
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;

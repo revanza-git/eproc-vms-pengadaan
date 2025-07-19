@@ -54,7 +54,7 @@
 					<td><?php echo $value['contract_no'];?></td>
 					<td><?php echo (strtotime($value['contract_start']) >0) ? default_date($value['contract_start']) : "-";?></td>
 					<td><?php echo $value['price_idr'];?></td>
-					<td><?php echo number_format($value['currency']).' '.number_format($value['price_foreign']);?></td>
+					<td><?php echo number_format(floatval($value['currency'])).' '.number_format(floatval($value['price_foreign']));?></td>
 					<td><?php echo (strtotime($value['contract_end']) >0) ? default_date($value['contract_end']) : "-";?></td>
 					<td><a href="<?php echo base_url('lampiran/contract_file/'.$value['contract_file']);?>"  target="_blank"><?php echo $value['contract_file'];?> <i class="fa fa-link"></i></a></td>
 				

@@ -54,7 +54,7 @@ date_default_timezone_set("Asia/Bangkok");
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
@@ -65,10 +65,16 @@ date_default_timezone_set("Asia/Bangkok");
  * By default development will show errors but testing and live will hide them.
  */
  ini_set('max_execution_time', 3600);
+// TEMPORARY: Enable all errors for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+ini_set('log_errors', 1);
+
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(0);
+		error_reporting(E_ALL);
 		ini_set('display_errors', 1);
 	break;
 
