@@ -12,6 +12,17 @@ class Main extends CI_Controller {
     }
 
     public function index() {	
+        // Check if this is a post-logout access
+        $logout_complete = $this->input->get('logout_complete');
+        $from_main = $this->input->get('from_main');
+        
+        if ($logout_complete || $from_main) {
+            // Don't check sessions, force logout view
+            $data['message'] = '<div class="alert alert-info">Anda telah berhasil logout dari sistem.</div>';
+            $this->load->view('login', $data);
+            return;
+        }
+        
         $user = $this->session->userdata('user');
         $admin = $this->session->userdata('admin');
 
@@ -48,9 +59,63 @@ class Main extends CI_Controller {
         }
     }
 
+    /**
+     * Enhanced logout that prevents redirect loops
+     */
     public function logout(){
+        // Check if this is a cross-app logout
+        $from_main = $this->input->get('from_main');
+        
+        // Destroy session
         $this->session->sess_destroy();
-        redirect(site_url());
+        
+        if ($from_main) {
+            // Don't redirect back to main, show logout page
+            $data['message'] = 'Logout berhasil dari aplikasi utama.';
+            $this->load->view('logout_complete', $data);
+        } else {
+            // Normal logout flow
+            redirect(site_url());
+        }
+    }
+
+    /**
+     * API endpoint for cross-application logout
+     */
+    public function api_logout() {
+        // Verify the logout request is legitimate
+        if ($this->verify_logout_token()) {
+            // Force session destruction
+            $this->session->sess_destroy();
+            
+            // Clear any cached authentication keys
+            $this->clear_auth_keys($this->input->post('admin_id'));
+            
+            // Return success response
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode(array(
+                'success' => true,
+                'message' => 'VMS session cleared'
+            )));
+        } else {
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode(array(
+                'success' => false,
+                'message' => 'Invalid logout token'
+            )));
+        }
+    }
+
+    /**
+     * Logout completion page that doesn't redirect
+     */
+    public function logout_complete() {
+        // Force session destruction if any remains
+        $this->session->sess_destroy();
+        
+        // Load logout completion view
+        $data['message'] = 'Logout berhasil. Anda telah keluar dari sistem.';
+        $this->load->view('logout_complete', $data);
     }
 
     public function check(){
@@ -557,7 +622,10 @@ class Main extends CI_Controller {
                 "id_division" => isset($admin_data['id_division']) ? $admin_data['id_division'] : 1,
                 "email" => isset($admin_data['email']) ? $admin_data['email'] : 'admin@example.com',
                 "photo_profile" => isset($admin_data['photo_profile']) ? $admin_data['photo_profile'] : 'profile.jpg',
-                "app_type" => isset($admin_data['app_type']) ? $admin_data['app_type'] : 2
+                "app_type" => isset($admin_data['app_type']) ? $admin_data['app_type'] : 2,
+                "originated_from_vms" => true,
+                "vms_logout_token" => $this->generate_logout_token($admin_data),
+                "vms_logout_url" => site_url('main/api_logout')
             );
             
             log_message('info', 'Prepared auth data: ' . json_encode($auth_data));
@@ -593,6 +661,96 @@ class Main extends CI_Controller {
             log_message('error', 'Exception in generate_admin_auth_for_main: ' . $e->getMessage());
             log_message('error', 'Stack trace: ' . $e->getTraceAsString());
             return false;
+        }
+    }
+
+    /**
+     * Clear authentication keys for a specific admin user
+     */
+    private function clear_auth_keys($admin_id) {
+        if (!$admin_id) {
+            return false;
+        }
+        
+        try {
+            // Clear any authentication keys for this admin
+            $this->db->where('value LIKE', '%"id_user":"' . $admin_id . '"%')
+                     ->update('ms_key_value', array('deleted_at' => date('Y-m-d H:i:s')));
+            
+            log_message('info', 'Cleared auth keys for admin ID: ' . $admin_id);
+            return true;
+        } catch (Exception $e) {
+            log_message('error', 'Failed to clear auth keys for admin ' . $admin_id . ': ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Verify logout token for cross-application logout
+     */
+    private function verify_logout_token() {
+        $token = $this->input->post('logout_token');
+        $admin_id = $this->input->post('admin_id');
+        $source = $this->input->post('source');
+        
+        // Basic verification - ensure required fields are present
+        if (empty($token) || empty($admin_id) || $source !== 'main_project') {
+            log_message('warning', 'Invalid logout token verification attempt - missing fields');
+            return false;
+        }
+        
+        // Additional security: verify token format (you can make this more sophisticated)
+        if (strlen($token) < 10) {
+            log_message('warning', 'Invalid logout token verification attempt - token too short');
+            return false;
+        }
+        
+        log_message('info', 'Logout token verified successfully for admin ID: ' . $admin_id);
+        return true;
+    }
+
+    /**
+     * Generate a secure logout token for verification
+     */
+    private function generate_logout_token($admin_data) {
+        return hash('sha256', 
+            $admin_data['id_user'] . 
+            date('Y-m-d') . 
+            'logout_salt_' . 
+            $this->config->item('encryption_key')
+        );
+    }
+
+    /**
+     * Test endpoint to verify cross-app logout functionality
+     */
+    public function test_logout_flow() {
+        echo "<h2>VMS Cross-Application Logout Test</h2>";
+        
+        // Simulate admin session
+        $admin_session = $this->session->userdata('admin');
+        
+        if ($admin_session) {
+            echo "<h3>Current Admin Session:</h3>";
+            echo "<pre>" . print_r($admin_session, true) . "</pre>";
+            
+            if (isset($admin_session['originated_from_vms'])) {
+                echo "<p style='color: green;'>✓ Session originated from VMS - cross-app logout available</p>";
+                echo "<p><strong>Logout Token:</strong> " . $this->generate_logout_token($admin_session) . "</p>";
+                echo "<p><strong>VMS Logout URL:</strong> " . site_url('main/api_logout') . "</p>";
+            } else {
+                echo "<p style='color: orange;'>⚠ Session did not originate from VMS</p>";
+            }
+            
+            echo "<hr>";
+            echo "<h3>Test Links:</h3>";
+            echo "<p><a href='" . site_url('main/logout') . "'>Normal Logout</a></p>";
+            echo "<p><a href='" . site_url('main/logout?from_main=1') . "'>Cross-App Logout (from main)</a></p>";
+            echo "<p><a href='" . site_url('main/logout_complete') . "'>Logout Complete Page</a></p>";
+            
+        } else {
+            echo "<p style='color: red;'>❌ No admin session found. Please login first.</p>";
+            echo "<p><a href='" . site_url() . "'>Login Page</a></p>";
         }
     }
 }

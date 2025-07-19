@@ -111,7 +111,9 @@ class Main_model extends CI_Model{
 						'app'			=>	'vms',
 						'app_type'		=>	$sql['type_app'],
 						'type'			=> 'admin',
-						'id_division'	=>	$sql['id_division']
+						'id_division'	=>	$sql['id_division'],
+						'originated_from_vms' => true,  // Track that this session started in VMS
+						'login_timestamp' => date('Y-m-d H:i:s')
 					);
 
 					$this->session->set_userdata('admin',$set_session);
@@ -156,7 +158,9 @@ class Main_model extends CI_Model{
 						'email'			=>  $data['email'],
 						'photo_profile' =>  $data['photo_profile'],
 						'app_type' 		=>	$sql['type_app'],
-						'type'			=> 'admin'
+						'type'			=> 'admin',
+						'originated_from_vms' => true,  // Track that this session started in VMS
+						'login_timestamp' => date('Y-m-d H:i:s')
 					);
 					$this->session->set_userdata('admin',$set_session);
 					$this->db->where('username', $username)->update('ms_login', array(
@@ -187,7 +191,9 @@ class Main_model extends CI_Model{
 						'role_name'		=>	$data['role_name'],
 						'sbu_name'		=>	$data['sbu_name'],
 						'app'			=>	'vms',
-						'type'			=> 'admin'
+						'type'			=> 'admin',
+						'originated_from_vms' => true,  // Track that this session started in VMS
+						'login_timestamp' => date('Y-m-d H:i:s')
 					);
 
 					$this->session->set_userdata('admin',$set_session);
