@@ -105,7 +105,7 @@ class Akta extends CI_Controller {
 				'rules'=>'callback_do_upload[authorize_file]'
 				),
 			);
-		if(($_FILES['file_extension_akta']['name']) != ""){
+		if(isset($_FILES['file_extension_akta']) && ($_FILES['file_extension_akta']['name']) != ""){
 			$vld[] = array(
 					'field'=>'file_extension_akta',
 					'label'=>'Bukti Sedang Dalam Proses Perpanjangan',
@@ -129,7 +129,13 @@ class Akta extends CI_Controller {
 			redirect(site_url('akta'));
 		}
 
-		$layout['content']= $this->load->view('tambah',NULL,TRUE);
+		// Initialize variables for the view
+		$view_data = array(
+			'akta_file' => '',
+			'authorize_file' => '',
+			'file_extension_akta' => ''
+		);
+		$layout['content']= $this->load->view('tambah',$view_data,TRUE);
 
 
 		$item['header'] = $this->load->view('dashboard/header',$user,TRUE);

@@ -43,7 +43,7 @@
 			<tr class="input-form">
 				<td><label>Bukti <i>scan</i> Akta*</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'akta_file','value'=>($this->form->get_temp_data('akta_file'))?$this->form->get_temp_data('akta_file'):$akta_file));?>
+					<?php echo $this->form->file(array('name'=>'akta_file','value'=>($this->form->get_temp_data('akta_file'))?$this->form->get_temp_data('akta_file'):(isset($akta_file) ? $akta_file : '')));?>
 				</td>
 			</tr>
 			<tr class="input-form">
@@ -71,13 +71,13 @@
 			<tr class="input-form">
 				<td><label>Bukti <i>scan</i> dokumen penetapan*</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'authorize_file','value'=>($this->form->get_temp_data('authorize_file'))?$this->form->get_temp_data('authorize_file'):$authorize_file));?>
+					<?php echo $this->form->file(array('name'=>'authorize_file','value'=>($this->form->get_temp_data('authorize_file'))?$this->form->get_temp_data('authorize_file'):(isset($authorize_file) ? $authorize_file : '')));?>
 				</td>
 			</tr>
 			<tr class="input-form">
 				<td><label>Bukti sedang dalam proses pengurusan</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'file_extension_akta','value'=>($this->form->get_temp_data('file_extension_akta'))?$this->form->get_temp_data('file_extension_akta'):$file_extension_akta));?>
+					<?php echo $this->form->file(array('name'=>'file_extension_akta','value'=>($this->form->get_temp_data('file_extension_akta'))?$this->form->get_temp_data('file_extension_akta'):(isset($file_extension_akta) ? $file_extension_akta : '')));?>
 					<?php //echo form_error('file_extension_akta'); ?>
 				</td>
 			</tr>
