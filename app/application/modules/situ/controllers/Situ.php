@@ -99,7 +99,7 @@ class Situ extends CI_Controller {
 				'rules'=>'callback_do_upload[situ_file]'
 				),
 			);
-		if(($_FILES['file_extension_situ']['name']) != ""){
+		if(isset($_FILES['file_extension_situ']) && ($_FILES['file_extension_situ']['name']) != ""){
 			$vld[] = array(
 					'field'=>'file_extension_situ',
 					'label'=>'Bukti Sedang Dalam Proses Perpanjangan',
@@ -125,7 +125,12 @@ class Situ extends CI_Controller {
 		}
 		// echo validation_errors();
 
-		$layout['content']= $this->load->view('tambah',NULL,TRUE);
+		// Initialize variables for the view
+		$view_data = array(
+			'situ_file' => '',
+			'file_extension_situ' => ''
+		);
+		$layout['content']= $this->load->view('tambah',$view_data,TRUE);
 
 		$item['header'] = $this->load->view('dashboard/header',$user,TRUE);
 		$item['content'] = $this->load->view('user/dashboard',$layout,TRUE);

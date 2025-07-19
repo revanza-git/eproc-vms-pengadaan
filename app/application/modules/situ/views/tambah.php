@@ -56,14 +56,14 @@
 			<tr class="input-form">
 				<td><label>Bukti scan dokumen SKDP*</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'situ_file','value'=>($this->form->get_temp_data('situ_file'))?$this->form->get_temp_data('situ_file'):$situ_file));?>
+					<?php echo $this->form->file(array('name'=>'situ_file','value'=>($this->form->get_temp_data('situ_file'))?$this->form->get_temp_data('situ_file'):(isset($situ_file) ? $situ_file : '')));?>
 					<?php //echo form_error('situ_file'); ?>
 				</td>
 			</tr>
 			<tr class="input-form">
 				<td><label>Bukti sedang dalam proses perpanjangan</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'file_extension_situ','value'=>($this->form->get_temp_data('file_extension_situ'))?$this->form->get_temp_data('file_extension_situ'):$file_extension_situ));?>
+					<?php echo $this->form->file(array('name'=>'file_extension_situ','value'=>($this->form->get_temp_data('file_extension_situ'))?$this->form->get_temp_data('file_extension_situ'):(isset($file_extension_situ) ? $file_extension_situ : '')));?>
 					<?php //echo form_error('file_extension_situ'); ?>
 				</td>
 			</tr>
