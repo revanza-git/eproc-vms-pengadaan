@@ -46,8 +46,8 @@
 			?>
 				<tr>
 					<td><?php echo $value['job_name'];?></td>
-					<!--<td><?php echo $value['bidang_name'];?></td>
-					<td><?php echo $value['sub_bidang_name'];?></td>-->
+					<!--<td><?php echo isset($value['bidang_name']) ? $value['bidang_name'] : '';?></td>
+					<td><?php echo isset($value['sub_bidang_name']) ? $value['sub_bidang_name'] : '';?></td>-->
 					<td><?php echo $value['job_location'];?></td>
 					<td><?php echo $value['job_giver'];?></td>
 					<td><?php echo $value['phone_no'];?></td>

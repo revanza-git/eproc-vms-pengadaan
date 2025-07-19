@@ -55,7 +55,7 @@
 											break;
 										case 'file':
 											?>	
-												<?php echo $this->form->file(array('value'=>$quest[$valuedata['id']],'name'=>'quest['.$valuedata["id"].']'));?>
+												<?php echo $this->form->file(array('value'=>(isset($quest) && isset($quest[$valuedata['id']]) ? $quest[$valuedata['id']] : ''),'name'=>'quest['.$valuedata["id"].']'));?>
 												<?php echo form_error('quest[$valuedata["id"]]'); ?>
 											<?php
 										break;

@@ -19,7 +19,7 @@
 			<tr class="input-form lampiran_csms">
 				<td><label>Sertifikat CSMS*</label></td>
 				<td>
-					<?php echo $this->form->file(array('name'=>'csms_file','value'=>$csms_file));?>
+					<?php echo $this->form->file(array('name'=>'csms_file','value'=>(isset($csms_file) ? $csms_file : '')));?>
 
 					</form>
 				</td>
