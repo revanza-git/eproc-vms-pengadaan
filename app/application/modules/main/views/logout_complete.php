@@ -70,7 +70,7 @@
     </a>
     
     <div class="footer-info">
-        Sistem VMS eProc - PT Perusahaan Gas Negara<br>
+        Sistem VMS eProc - PT Nusantara Regas<br>
         Logout completed at <?php echo date('d/m/Y H:i:s'); ?>
     </div>
 </div>

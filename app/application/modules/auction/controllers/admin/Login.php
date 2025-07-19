@@ -41,7 +41,7 @@ class Login extends CI_Controller{
 	function logout(){
 		$_SESSION['vm_pgn_active_user'] = $_SESSION['vm_pgn_active_admin'] = null;
 		
-		echo 'anda telah ter-logout dari aplikasi Manajemen Penyedia Barang/Jasa PT Perusahaan Gas Negara (Persero) Tbk...';
+		echo 'anda telah ter-logout dari aplikasi Manajemen Penyedia Barang/Jasa PT Nusantara Regas...';
 		die('<script type="text/javascript">location.replace("'.base_url().'")</script>');
 	}
 }
